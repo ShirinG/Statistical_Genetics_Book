@@ -1,0 +1,27 @@
+
+# Quantitative Genetics
+
+
+## Quantitative Traits
+
+
+## Gene x Environment interactions
+
+
+## Variance and heritability
+
+
+## Recombinant Inbred Lines (RILs)
+
+
+## QTL analysis
+
+```{r}
+pkg = "qtl"
+if (system.file(package = pkg) == '') install.packages(pkg)
+```
+
+```{r}
+library(qtl)
+```
+

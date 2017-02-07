@@ -1,0 +1,28 @@
+--- 
+title: "Statistical Genetics Analyses in R"
+author: "Dr. Shirin Glander"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+output:
+  bookdown::gitbook: default
+documentclass: book
+link-citations: yes
+colorlinks: yes
+lot: yes
+lof: yes
+fontsize: 12pt
+monofont: "Source Code Pro"
+monofontoptions: "Scale=0.7"
+description: "Description to come..."
+---
+
+# Index
+
+This book is supposed to be a guide to doing statistical genetics analyses with R. 
+
+It will show full working examples using established methods and packages. Around these examples, extensive explanations will be given to aid getting a good understanding of the concepts and theories.
+
+The focus of this book will be on conveying concepts and theories behind quantitative, population and epidemiological genetics, while providing easy-to-reproduce example workflows. I will therefore omit the use of formulas wherever possible, to primarily address users without mathematical background.
+
+
+

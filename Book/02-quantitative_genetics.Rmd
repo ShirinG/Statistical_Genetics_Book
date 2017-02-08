@@ -2,28 +2,273 @@
 # Quantitative Genetics
 
 
-## Quantitative Traits
-
-
-## Gene x Environment interactions
-
-
-## Variance and heritability
-
-
-## Recombinant Inbred Lines (RILs)
-
-
 ## QTL analysis
 
-[@Broman2003]
+Quantitative Trait Loci (QTL) are regions in the genome that are associated with variation in a quantitative trait. Quantitative traits are phentoypes that can be measured on a continuous scale, like height, weight, etc.
+
+QTL analysis (or QTL mapping) is typically done on experimental populations to find genes which contribute to the heritability of traits. Phenotype and genetic marker data are collected from every individual in the population. The general concept of QTL mapping is that we can then calculate the correlation between genotypes and phenotypes at each marker position and test whether they show a statistically significant association.
+
+Let's consider the famous example of @Doebley285, who assessed the variation of traits that discriminate commercial maize from its native relative teosinte. Teosinte is much smaller than maize as we know it today and one teosinte plant produces many ears, each of which has only two rows of seeds. But even though maize and teosinte look so completely different, they are still able to produce viable offspring together. @Doebley285 utilized this and crossed the two plant species to produce an F1 generation, which were in turn self-pollinated. The resulting F2 population of maize-teosinte-hybrids showed a wide range of intermediate parental morphologies. Each of the F2 offspring was then genotyped at 58 locations in the genome, so that the quantitative trait information on morphology could be correlated with the genetic map. This analysis revealed that most of the morphological variation between maize and teosinte were the result of changes in only a handful of genes, one of which is the *tb1* (*teosinte branched 1*) gene.
+
+
+### Recombinant Inbred Lines (RILs)
+
+RILs are experimental sister populations that have been produced by a very specific back-crossing scheme. The process is similar to Doebley and Stec's crossing of maize and teosinte: two homozygous parents are crossed to produce an F1 generation. Following the laws of genetics, each offspring's genome consists of a random combination of parental alleles and crossover (or recombination) events. Depending on the design, F1 offspring are usually either selfed or mated with a sibling to introduce another level of genetic recombination. The final generation is then inbred for many generations to obtain a collection of homozygous sister lines, each with a unique mosaic genome of parental alleles [@Pollard2012].
+
+
+### QTL analysis in R
+
+#### The "qtl" package
+
+The best established R package for QTL mapping is @Broman2003's [**qtl** package](http://www.rqtl.org/). It implements several techniques for finding QTLs, like Hidden Markov Models (HMM), interval mapping, Haley-Knott regression and multiple imputation. It is very well documented and comes with extensive example data and code.
+
+Here, I will introduce you to a basic QTL mapping workflow using the examples given in the package documentation and refer you to more complex analysis options where applicable.
+
+##### Installation and loading the package {-}
+
+If this is the first time you are using the **qtl** package, you need to install it from CRAN. The following line of code checks whether you already have the package, and if not installs it.
 
 ```{r}
 pkg = "qtl"
 if (system.file(package = pkg) == '') install.packages(pkg)
 ```
 
+You can then load the package:
+
 ```{r}
 library(qtl)
 ```
 
+
+##### Loading the data {-}
+
+I will be using the example data on murine hypertension that is provided in the package [@Sugiyama200170]. The **summary()** function shows you the main properties of the data:
+
+```{r}
+data(hyper)
+summary(hyper)
+```
+
+The **plot()** function produces plots showing missing genotypes, the marker positions and the distribution of phenotypes or traits. This will give you a first idea of your data.
+
+The [package manual](http://www.rqtl.org/tutorials/rqtltour.pdf) includes a description of various additional plotting functions, which I won't cover here.
+I also advise to examine each object with **head()** or **summary()** after you ran a function to get a feel for your data and the various steps you are taking in the analysis. 
+
+```{r fig.width=8, fig.height=6, fig.align='center'}
+plot(hyper)
+```
+
+##### Genetic map estimation {-}
+
+Before we proceed with the analysis, I typically recommend to replace the existing genetic map with an estimated one to reduce the potential errors. The genetic map represents all markers on a chromosome in a linear fashion. The **est.map()** function applies a Hidden Markov Model [@Lander01041987] to estimate the map with an assumed genotyping error rate (*error.prob*).
+
+Here, we can also specifiy the mapping function (*map.function*) that we want to use to convert genetic distance to recombination fraction. The distance between two markers is usually given as a unit of genetic linkage, called *centimorgan (cM)* One cM represents the distance with an average of 0.01 crossover events in one generation (i.e. 1% recombination). However, this representation of distance underestimates the actual recombination fraction, which is inherently not additive. With increasing distance the chance of double crossovers increases, so that they are in a way "invisible" to the traditional estimation of recombination distance.
+
+Another reason why genetic maps based on recombination are biased is crossover interference, which described the phenomenon that a crossover event reduces the likelihood of another recombination event occur close by.
+
+To correct for such biases, we can choose from the following mapping functions:
+
+- **Haldane's** is the simplest mapping function and assumes a Poisson distribution for crossover events and does not consider interference.
+- **Kosambi's** mapping function also considers interference and double crossovers but it can not calculate joint recombination probabilities for more than three loci.
+- **Carter-Falconer's** mapping function can be extended to more complex interference rates.
+- **Morgan's** mapping function assumes complete interference.
+
+The two most widely used mapping functions are Haldane's (the default) and Kosambi's. For this example, using Haldane's should be sufficient. Because our example is a backcross, we can assume no interference, meaning that all crossovers are independent [@lynch1998genetics].
+
+```{r}
+newmap <- est.map(hyper, error.prob = 0.0001, map.function = "haldane")
+hyper <- replace.map(hyper, newmap)
+```
+
+We can now estimate the recombination fractions between all pairs of markers. The **est.rf()** function also calculates the LOD scores. LOD stands for "likelihood of the odds" and is a measure of linkage. In QTL mapping we calculate LOD scores for the genetic markers and a threshold, above which we consider a QTL statistically significant in its association with the trait.
+
+```{r fig.width=8, fig.height=8, fig.align='center'}
+hyper <- est.rf(hyper)
+```
+
+The **calc.errorlod()** function calculates the genotyping errors according to @Lincoln1992604.
+
+```{r}
+hyper <- calc.errorlod(hyper, error.prob = 0.0001)
+```
+
+
+##### Finding QTLs {-}
+
+Now, we can proceed with the central step: mapping the QTLs.
+
+The core of R/qtl is a set of functions which make use of the hidden Markov model (HMM) technology to calculate
+QTL genotype probabilities, to simulate from the joint genotype distribution and to calculate the most likely sequence of
+underlying genotypes (all conditional on the observed marker data). This is done in a quite general way, with possible
+allowance for the presence of genotyping errors. Of course, for convenience we assume no crossover interference.
+The function calc.genoprob calculates QTL genotype probabilities, conditional on the available marker data. These
+are needed for most of the QTL mapping functions. The argument step indicates the step size (in cM) at which the
+probabilities are calculated, and determines the step size at which later LOD scores are calculated.
+
+
+```{r}
+hyper <- calc.genoprob(hyper, step = 1, error.prob = 0.0001)
+```
+
+We may now use the function scanone to perform a single-QTL genome scan with a normal model. We may use
+maximum likelihood via the EM algorithm (Lander and Botstein 1989) or use Haley-Knott regression (Haley and Knott
+1992).
+
+
+```{r}
+out.em <- scanone(hyper)
+out.hk <- scanone(hyper, method = "hk")
+```
+
+We may also use the multiple imputation method of Sen and Churchill (2001). This requires that we first use sim.geno
+to simulate from the joint genotype distribution, given the observed marker data. Again, the argument step indicates
+the step size at which the imputations are performed and determines the step size at which LOD scores will be calculated.
+The n.draws indicates the number of imputations to perform. Larger values give more precise results but require
+considerably more computer memory and computation time.
+
+
+```{r}
+hyper <- sim.geno(hyper, step = 2, n.draws = 16, error.prob = 0.01)
+out.imp <- scanone(hyper, method = "imp")
+```
+
+```{r}
+plot(out.em)
+plot(out.hk, col = "blue", add = TRUE)
+plot(out.imp, col = "red", add = TRUE)
+legend("topright", c("EM algorithm", "Haley-Knott", "Mult. imputation"), col = c("black", "blue", "red"), lty = 1, lwd = 3)
+```
+
+The function scanone may also be used to perform a permutation test to get a genome-wide LOD significance threshold.
+For Haley-Knott regression, this can be quite fast.
+
+
+```{r cache = TRUE}
+operm.hk <- scanone(hyper, method = "hk", n.perm = 1000)
+```
+
+The permutation output has class "scanoneperm". The function summary.scanoneperm can be used to get
+significance thresholds.
+
+
+```{r}
+summary(operm.hk, alpha = 0.05)
+```
+
+In addition, if the permutations results are included in a call to summary.scanone, you can estimated genome-scanadjusted
+p-values for inferred QTL, and can get a report of all chromosomes meeting a certain significance level, with
+the corresponding LOD threshold calculated automatically.
+
+```{r}
+summary(out.hk, perms=operm.hk, alpha = 0.05, pvalues = TRUE)
+```
+
+The function scantwo performs a two-dimensional genome scan with a two-QTL model. For every pair of positions, it
+calculates a LOD score for the full model (two QTL plus interaction) and a LOD score for the additive model (two QTL
+but no interaction). This be quite time consuming, and so you may wish to do the calculations on a coarser grid.
+One can also use method="em" or method="imp", but they are even more time consuming.
+
+
+```{r}
+hyper <- calc.genoprob(hyper, step = 5, error.prob = 0.01)
+out2.hk <- scantwo(hyper, method = "hk")
+```
+
+The output of scantwo has class "scantwo"; there are functions for obtaining summaries and plots, of course.
+The summary function considers each pair of chromosomes, and calculates the maximum LOD score for the full model
+(Mf ) and the maximum LOD score for the additive model (Ma). These two models are allowed to be maximized at
+different positions. We futher calculate a LOD score for a test of epistasis, Mi = Mf − Ma, and two LOD scores that
+concern evidence for a second QTL: Mfv1 is the LOD score comparing the full model to the best single-QTL model and
+Mav1 is the LOD score comparing the additive model to the best single-QTL model.
+In the summary, we must provide five thresholds, for Mf , Mfv1, Mi
+, Ma, and Mav1, respectively. Call these Tf , Tfv1,
+Ti
+, Ta, and Tav1. We then report those pairs of chromosomes for which at least one of the following holds:
+7
+• Mf ≥ Tf and (Mfv1 ≥ Tfv1 or Mi ≥ Ti)
+• Ma ≥ Ta and Mav1 ≥ Tav1
+The thresholds can be obtained by a permutation test (see below), but this is extremely time-consuming. For a mouse
+backcross, we suggest the thresholds (6.0, 4.7, 4.4, 4.7, 2.6) for the full, conditional-interactive, interaction, additive, and
+conditional-additive LOD scores, respectively. For a mouse intercross, we suggest the thresholds (9.1, 7.1, 6.3, 6.3, 3.3)
+for the full, conditional-interactive, interaction, additive, and conditional-additive LOD scores, respectively. These were
+obtained by 10,000 simulations of crosses with 250 individuals, markers at a 10 cM spacing, and analysis by Haley-Knott
+regression.
+
+```{r}
+summary(out2.hk, thresholds=c(6.0, 4.7, 4.4, 4.7, 2.6))
+```
+
+The appropriate decision rule is not yet completely clear. I am inclined to ignore Mi and to choose genome-wide
+thresholds for the other four based on a permutation, using a common significance level for all four. Mi would be
+ignored if we gave it a very large threshold, as follows.
+
+```{r}
+summary(out2.hk, thresholds=c(6.0, 4.7, Inf, 4.7, 2.6))
+```
+
+```{r}
+plot(out2.hk)
+```
+
+By default, the upper-left triangle contains epistasis LOD scores and the lower-right triangle contains the LOD scores for
+the full model. The color scale on the right indicates separate scales for the epistasis and joint LOD scores (on the left
+and right, respectively).
+
+The function max.scantwo returns the two-locus positions with the maximum LOD score for the full and additive
+models
+
+```{r}
+max(out2.hk)
+```
+
+One may also use scantwo to perform permutation tests in order to obtain genome-wide LOD significance thresholds.
+These can be extremely time consuming, though with the Haley-Knott regression and multiple imputation methods,
+there is a trick that may be used in some cases to dramatically speed things up. So we’ll try 100 permutations by the
+Haley-Knott regression method and hope that your computer is sufficiently fast.
+
+```{r}
+operm2.hk <- scantwo(hyper, method = "hk", n.perm = 100)
+```
+
+We can again use summary to get LOD thresholds.
+
+```{r}
+summary(operm2.hk)
+```
+
+And again these may be used in the summary of the scantwo output to calculate thresholds and p-values. If you want
+to ignore the LOD score for the interaction in the rule about what chromosome pairs to report, give α = 0, corresponding
+to a threshold T = ∞.
+
+```{r}
+summary(out2.hk, perms = operm2.hk, pvalues = TRUE, alphas = c(0.05, 0.05, 0, 0.05, 0.05))
+```
+
+You can’t really trust these results. Haley-Knott regression performs poorly in the case of selective genotyping (as with
+the hyper data). Standard interval mapping or imputation would be better, but Haley-Knott regression has the advantage
+of speed, which is the reason we use it here.
+
+Finally, we consider the fit of multiple-QTL models. Currently, only multiple imputation and Haley-Knott regression has
+been implemented. We use multiple imputation here, as Haley-Knott regression performs poorly in the case of selective
+genotyping, which was used for the hyper data. We first create a QTL object using the function makeqtl, with five
+QTL at specified, fixed positions.
+
+```{r}
+chr <- c(1, 1, 4, 6, 15)
+pos <- c(50, 76, 30, 70, 20)
+qtl <- makeqtl(hyper, chr, pos)
+```
+
+Finally, we use the function fitqtl to fit a model with five QTL, and allowing the QTL on chr 6 and 15 to interact.
+
+```{r eval=FALSE}
+out.fitqtl <- fitqtl(hyper, qtl=qtl, formula=y - Q1 + Q2 + Q3 + Q4 + Q5 + Q4:Q5)
+summary(out.fitqtl)
+```
+
+##### Covariates in QTL models {-}
+
+## Gene x Environment interactions
+
+
+## Variance and heritability

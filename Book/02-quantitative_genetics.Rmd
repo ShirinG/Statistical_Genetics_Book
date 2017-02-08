@@ -16,6 +16,8 @@
 
 ## QTL analysis
 
+[@Broman2003]
+
 ```{r}
 pkg = "qtl"
 if (system.file(package = pkg) == '') install.packages(pkg)

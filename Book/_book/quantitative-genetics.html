@@ -25,7 +25,7 @@
 <meta name="author" content="Dr. Shirin Glander">
 
 
-<meta name="date" content="2017-02-07">
+<meta name="date" content="2017-02-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="introduction-to-statistical-genetics.html">
-
+<link rel="next" href="population-genetics.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -53,38 +53,38 @@
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
 td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
 code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
 code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 </head>
@@ -99,15 +99,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Index</a></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the Author</a></li>
-<li class="chapter" data-level="2" data-path="introduction-to-statistical-genetics.html"><a href="introduction-to-statistical-genetics.html"><i class="fa fa-check"></i><b>2</b> Introduction to Statistical Genetics</a></li>
-<li class="chapter" data-level="3" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html"><i class="fa fa-check"></i><b>3</b> Quantitative Genetics</a><ul>
-<li class="chapter" data-level="3.1" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html#quantitative-traits"><i class="fa fa-check"></i><b>3.1</b> Quantitative Traits</a></li>
-<li class="chapter" data-level="3.2" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html#gene-x-environment-interactions"><i class="fa fa-check"></i><b>3.2</b> Gene x Environment interactions</a></li>
-<li class="chapter" data-level="3.3" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html#variance-and-heritability"><i class="fa fa-check"></i><b>3.3</b> Variance and heritability</a></li>
-<li class="chapter" data-level="3.4" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html#recombinant-inbred-lines-rils"><i class="fa fa-check"></i><b>3.4</b> Recombinant Inbred Lines (RILs)</a></li>
-<li class="chapter" data-level="3.5" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html#qtl-analysis"><i class="fa fa-check"></i><b>3.5</b> QTL analysis</a></li>
+<li class="chapter" data-level="1" data-path="introduction-to-statistical-genetics.html"><a href="introduction-to-statistical-genetics.html"><i class="fa fa-check"></i><b>1</b> Introduction to Statistical Genetics</a></li>
+<li class="chapter" data-level="2" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html"><i class="fa fa-check"></i><b>2</b> Quantitative Genetics</a><ul>
+<li class="chapter" data-level="2.1" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html#quantitative-traits"><i class="fa fa-check"></i><b>2.1</b> Quantitative Traits</a></li>
+<li class="chapter" data-level="2.2" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html#gene-x-environment-interactions"><i class="fa fa-check"></i><b>2.2</b> Gene x Environment interactions</a></li>
+<li class="chapter" data-level="2.3" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html#variance-and-heritability"><i class="fa fa-check"></i><b>2.3</b> Variance and heritability</a></li>
+<li class="chapter" data-level="2.4" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html#recombinant-inbred-lines-rils"><i class="fa fa-check"></i><b>2.4</b> Recombinant Inbred Lines (RILs)</a></li>
+<li class="chapter" data-level="2.5" data-path="quantitative-genetics.html"><a href="quantitative-genetics.html#qtl-analysis"><i class="fa fa-check"></i><b>2.5</b> QTL analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="population-genetics.html"><a href="population-genetics.html"><i class="fa fa-check"></i><b>3</b> Population Genetics</a><ul>
+<li class="chapter" data-level="3.1" data-path="population-genetics.html"><a href="population-genetics.html#hardy-weinberg"><i class="fa fa-check"></i><b>3.1</b> Hardy-Weinberg</a></li>
+<li class="chapter" data-level="3.2" data-path="population-genetics.html"><a href="population-genetics.html#linkage-disequilibrium"><i class="fa fa-check"></i><b>3.2</b> Linkage Disequilibrium</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="evolutionary-genetics.html"><a href="evolutionary-genetics.html"><i class="fa fa-check"></i><b>4</b> Evolutionary Genetics</a><ul>
+<li class="chapter" data-level="4.1" data-path="evolutionary-genetics.html"><a href="evolutionary-genetics.html#evolution-of-genetic-systems"><i class="fa fa-check"></i><b>4.1</b> Evolution of genetic systems</a></li>
+<li class="chapter" data-level="4.2" data-path="evolutionary-genetics.html"><a href="evolutionary-genetics.html#phylogenetics"><i class="fa fa-check"></i><b>4.2</b> Phylogenetics</a></li>
+<li class="chapter" data-level="4.3" data-path="evolutionary-genetics.html"><a href="evolutionary-genetics.html#game-theory"><i class="fa fa-check"></i><b>4.3</b> Game Theory</a></li>
+<li class="chapter" data-level="4.4" data-path="evolutionary-genetics.html"><a href="evolutionary-genetics.html#genetic-algorithms"><i class="fa fa-check"></i><b>4.4</b> Genetic Algorithms</a></li>
+<li class="chapter" data-level="4.5" data-path="evolutionary-genetics.html"><a href="evolutionary-genetics.html#evolutionary-algorithms"><i class="fa fa-check"></i><b>4.5</b> Evolutionary Algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="genetics-of-complex-diseases.html"><a href="genetics-of-complex-diseases.html"><i class="fa fa-check"></i><b>5</b> Genetics of complex diseases</a><ul>
+<li class="chapter" data-level="5.1" data-path="genetics-of-complex-diseases.html"><a href="genetics-of-complex-diseases.html#genome-wide-association-studies-gwas"><i class="fa fa-check"></i><b>5.1</b> Genome Wide Association Studies (GWAS)</a></li>
+<li class="chapter" data-level="5.2" data-path="genetics-of-complex-diseases.html"><a href="genetics-of-complex-diseases.html#pedigree-analysis"><i class="fa fa-check"></i><b>5.2</b> Pedigree analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="genetic-epidemiology.html"><a href="genetic-epidemiology.html"><i class="fa fa-check"></i><b>6</b> Genetic Epidemiology</a><ul>
+<li class="chapter" data-level="6.1" data-path="genetic-epidemiology.html"><a href="genetic-epidemiology.html#infection-models"><i class="fa fa-check"></i><b>6.1</b> Infection models</a></li>
 </ul></li>
 </ul>
 
@@ -127,25 +144,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="quantitative-genetics" class="section level1">
-<h1><span class="header-section-number">3</span> Quantitative Genetics</h1>
+<h1><span class="header-section-number">2</span> Quantitative Genetics</h1>
 <div id="quantitative-traits" class="section level2">
-<h2><span class="header-section-number">3.1</span> Quantitative Traits</h2>
+<h2><span class="header-section-number">2.1</span> Quantitative Traits</h2>
 </div>
 <div id="gene-x-environment-interactions" class="section level2">
-<h2><span class="header-section-number">3.2</span> Gene x Environment interactions</h2>
+<h2><span class="header-section-number">2.2</span> Gene x Environment interactions</h2>
 </div>
 <div id="variance-and-heritability" class="section level2">
-<h2><span class="header-section-number">3.3</span> Variance and heritability</h2>
+<h2><span class="header-section-number">2.3</span> Variance and heritability</h2>
 </div>
 <div id="recombinant-inbred-lines-rils" class="section level2">
-<h2><span class="header-section-number">3.4</span> Recombinant Inbred Lines (RILs)</h2>
+<h2><span class="header-section-number">2.4</span> Recombinant Inbred Lines (RILs)</h2>
 </div>
 <div id="qtl-analysis" class="section level2">
-<h2><span class="header-section-number">3.5</span> QTL analysis</h2>
+<h2><span class="header-section-number">2.5</span> QTL analysis</h2>
+<p><span class="citation">(Broman et al. <a href="#ref-Broman2003">2003</a>)</span></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pkg =<span class="st"> &quot;qtl&quot;</span>
 if (<span class="kw">system.file</span>(<span class="dt">package =</span> pkg) ==<span class="st"> &#39;&#39;</span>) <span class="kw">install.packages</span>(pkg)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(qtl)</code></pre></div>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Broman2003">
+<p>Broman, Karl W., Hao Wu, Saunak Sen, and Gary A. Churchill. 2003. “R/Qtl: QTL Mapping in Experimental Crosses.” <em>Bioinformatics</em> 19: 889–90.</p>
 </div>
 </div>
             </section>
@@ -153,8 +177,8 @@ if (<span class="kw">system.file</span>(<span class="dt">package =</span> pkg) =
           </div>
         </div>
       </div>
-<a href="introduction-to-statistical-genetics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="introduction-to-statistical-genetics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="population-genetics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

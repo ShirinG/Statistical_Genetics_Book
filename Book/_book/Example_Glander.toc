@@ -1,0 +1,41 @@
+\contentsline {chapter}{Preface}{5}{chapter*.2}
+\contentsline {section}{Why read this book}{5}{section*.3}
+\contentsline {section}{Structure of the book}{5}{section*.4}
+\contentsline {section}{Software information and conventions}{5}{section*.5}
+\contentsline {section}{Acknowledgments}{5}{section*.6}
+\contentsline {chapter}{About the Author}{7}{chapter*.7}
+\contentsline {chapter}{\numberline {1}Introduction to Statistical Genetics}{9}{chapter.1}
+\contentsline {chapter}{\numberline {2}Quantitative Genetics}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}QTL analysis}{11}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Recombinant Inbred Lines (RILs)}{11}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}QTL analysis in R}{12}{subsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.2.1}The ``qtl'' package}{12}{subsubsection.2.1.2.1}
+\contentsline {paragraph}{\numberline {2.1.2.1.1}Installation and loading the package}{12}{paragraph.2.1.2.1.1}
+\contentsline {paragraph}{Installation and loading the package}{12}{paragraph.2.1.2.1.1}
+\contentsline {paragraph}{\numberline {2.1.2.1.2}Loading the data}{12}{paragraph.2.1.2.1.2}
+\contentsline {paragraph}{Loading the data}{12}{paragraph.2.1.2.1.2}
+\contentsline {paragraph}{\numberline {2.1.2.1.3}Genetic map estimation}{14}{paragraph.2.1.2.1.3}
+\contentsline {paragraph}{Genetic map estimation}{14}{paragraph.2.1.2.1.3}
+\contentsline {paragraph}{\numberline {2.1.2.1.4}Finding QTLs}{15}{paragraph.2.1.2.1.4}
+\contentsline {paragraph}{Finding QTLs}{15}{paragraph.2.1.2.1.4}
+\contentsline {paragraph}{\numberline {2.1.2.1.5}QTL interaction mapping}{18}{paragraph.2.1.2.1.5}
+\contentsline {paragraph}{QTL interaction mapping}{18}{paragraph.2.1.2.1.5}
+\contentsline {paragraph}{\numberline {2.1.2.1.6}Covariates in QTL models}{18}{paragraph.2.1.2.1.6}
+\contentsline {paragraph}{Covariates in QTL models}{18}{paragraph.2.1.2.1.6}
+\contentsline {subsubsection}{\numberline {2.1.2.2}QTL Analysis using Bayesian Interval Mapping (``qtlbim'' package)}{18}{subsubsection.2.1.2.2}
+\contentsline {section}{\numberline {2.2}Gene x Environment interactions}{18}{section.2.2}
+\contentsline {section}{\numberline {2.3}Variance and heritability}{18}{section.2.3}
+\contentsline {chapter}{\numberline {3}Population Genetics}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Hardy-Weinberg}{19}{section.3.1}
+\contentsline {section}{\numberline {3.2}Linkage Disequilibrium}{19}{section.3.2}
+\contentsline {chapter}{\numberline {4}Evolutionary Genetics}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Evolution of genetic systems}{21}{section.4.1}
+\contentsline {section}{\numberline {4.2}Phylogenetics}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}Game Theory}{21}{section.4.3}
+\contentsline {section}{\numberline {4.4}Genetic Algorithms}{21}{section.4.4}
+\contentsline {section}{\numberline {4.5}Evolutionary Algorithms}{21}{section.4.5}
+\contentsline {chapter}{\numberline {5}Genetics of complex diseases}{23}{chapter.5}
+\contentsline {section}{\numberline {5.1}Genome Wide Association Studies (GWAS)}{23}{section.5.1}
+\contentsline {section}{\numberline {5.2}Pedigree analysis}{23}{section.5.2}
+\contentsline {chapter}{\numberline {6}Genetic Epidemiology}{25}{chapter.6}
+\contentsline {section}{\numberline {6.1}Infection models}{25}{section.6.1}

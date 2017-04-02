@@ -87,7 +87,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-02-09}
+  \date{2017-04-02}
 
 
 \begin{document}
@@ -100,8 +100,45 @@
 }
 \listoftables
 \listoffigures
+\textless{}\textgreater{}= options(tikzDefaultEngine=`xetex') @
+
 \chapter*{Preface}\label{preface}
 \addcontentsline{toc}{chapter}{Preface}
+
+\section*{Why read this book}\label{why-read-this-book}
+\addcontentsline{toc}{section}{Why read this book}
+
+\section*{Structure of the book}\label{structure-of-the-book}
+\addcontentsline{toc}{section}{Structure of the book}
+
+\section*{Software information and
+conventions}\label{software-information-and-conventions}
+\addcontentsline{toc}{section}{Software information and conventions}
+
+All analyses are run on R version 3.3.2 (2016-10-31) -- ``Sincere
+Pumpkin Patch'' on a x86\_64-w64-mingw32/x64 (64-bit) platform.
+
+Some packages are available via
+\href{https://cran.r-project.org/}{CRAN}, while others are hosted at
+\href{https://www.bioconductor.org/}{Bioconductor}. I will provide
+package installation instructions at the beginning of each example,
+indicating where each package can be found.
+
+I will also be using the \textbf{library()} function, rather than
+\textbf{require()} for loading packages to make sure that we will get an
+error message in case packages have not been installed correctly.
+
+The example workflows included are meant to illustrate the theoretical
+concepts and get you started on your own analysis. They are minimal
+examples of the necessary steps but are not meant to substitute the
+package manuals. When you want to apply the workflows to your own data,
+I highly recommend going back to the package documentation to find out
+about additional functions and using the help() function to explore
+parameter options. I will be using the same naming and code schemes as
+in the package manuals to make finding the relevant parts easy.
+
+\section*{Acknowledgments}\label{acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
 
 \chapter*{About the Author}\label{about-the-author}
 \addcontentsline{toc}{chapter}{About the Author}
@@ -119,8 +156,6 @@ Genetics}\label{introduction-to-statistical-genetics}
 diseases}\label{genetics-of-complex-diseases}
 
 \chapter{Genetic Epidemiology}\label{genetic-epidemiology}
-
-\section{Infection models}\label{infection-models}
 
 \chapter{Placeholder}\label{placeholder}
 

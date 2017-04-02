@@ -1,12 +1,12 @@
 --- 
-title: "Statistical Genetics Analyses in R"
+title: "Statistical Genetics: Analyses with R"
 author: "Dr. Shirin Glander"
 date: '`r Sys.Date()`'
 output:
-  bookdown::pdf_book:
-    keep_tex: yes
   bookdown::gitbook:
     highlight: tango
+  bookdown::pdf_book:
+    keep_tex: yes
 bibliography:
 - book.bib
 - packages.bib
@@ -35,7 +35,7 @@ options(tikzDefaultEngine='xetex')
 
 ## Software information and conventions {-}
 
-All analyses are run on R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch" on a x86_64-w64-mingw32/x64 (64-bit) platform.
+All analyses are run on R version 3.3.3 (2017-03-06) -- "Another Canoe".
 
 Some packages are available via [CRAN](https://cran.r-project.org/), while others are hosted at [Bioconductor](https://www.bioconductor.org/). I will provide package installation instructions at the beginning of each example, indicating where each package can be found.
 

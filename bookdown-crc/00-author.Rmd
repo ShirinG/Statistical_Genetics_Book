@@ -1,0 +1,13 @@
+# About the Author {-}
+
+I am a bioinformatician at the University Hospital of Münster in Germany, where I'm responsible for Next Generation Sequencing analysis. I've earned my PhD from the University of Münster, where I worked on the link between flowering time and immune defense in plants using quantitative genetics and RNA-sequencing. My overarching interest has been evolutionary biology and genetics. At the moment, I am mainly working on questions relating to immunology - specifically inflammation, immune tolerance and auto-inflammatory diseases.
+
+I'm a big fan of R and I write [a blog](https://shiring.github.io/) where I explore different data sets and techniques in R. I also teach ballroom and Latin dance courses.
+
+You can find me and my package for gene expression analysis (exprAnalysis) on [Github](https://github.com/ShirinG).
+
+---
+
+# The basics of R {-}
+
+- introduce the basics of R or at a minimum provide a set of resources that can be used to learning R prior to starting this book

@@ -1,0 +1,6 @@
+
+# Genetics of complex diseases
+
+## Genome Wide Association Studies (GWAS)
+
+## Pedigree analysis

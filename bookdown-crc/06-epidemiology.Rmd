@@ -1,4 +1,0 @@
-
-# Genetic Epidemiology
-
-## Infection models

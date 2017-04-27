@@ -1,4 +1,0 @@
-\mainmatter
-
-# Introduction to Statistical Genetics
-

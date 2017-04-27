@@ -8,6 +8,6 @@ You can find me and my package for gene expression analysis (exprAnalysis) on [G
 
 ---
 
-# The basics of R {-}
+# The Basics of R {-}
 
 - introduce the basics of R or at a minimum provide a set of resources that can be used to learning R prior to starting this book

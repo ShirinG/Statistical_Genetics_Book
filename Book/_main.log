@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.4.25)  26 APR 2017 16:44
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.4.25)  27 APR 2017 09:47
 entering extended mode
 **./_main.tex
 (_main.tex
@@ -811,42 +811,93 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip82
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count165
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: xetex.def on input line 147.
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\xetex.def"
+File: xetex.def 2016/07/11 v4.10 LaTeX color/graphics driver for XeTeX (L3/RRM/
+JK)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)) (C:\Users\s_glan02\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyvrb\fancyvrb.st
+y
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count166
+\FV@InFile=\read2
+\FV@TabBox=\box70
+\c@FancyVerbLine=\count167
+\FV@StepNumber=\count168
+\FV@OutFile=\write3
+) (C:\Users\s_glan02\AppData\Roaming\MiKTeX\2.9\tex\latex\framed\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip83
+\fb@frw=\dimen172
+\fb@frh=\dimen173
+\FrameRule=\dimen174
+\FrameSep=\dimen175
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\longtable.sty"
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
-\LTleft=\skip83
-\LTright=\skip84
-\LTpre=\skip85
-\LTpost=\skip86
-\LTchunksize=\count166
-\LTcapwidth=\dimen172
-\LT@head=\box70
-\LT@firsthead=\box71
-\LT@foot=\box72
-\LT@lastfoot=\box73
-\LT@cols=\count167
-\LT@rows=\count168
-\c@LT@tables=\count169
-\c@LT@chunks=\count170
+\LTleft=\skip84
+\LTright=\skip85
+\LTpre=\skip86
+\LTpost=\skip87
+\LTchunksize=\count169
+\LTcapwidth=\dimen176
+\LT@head=\box71
+\LT@firsthead=\box72
+\LT@foot=\box73
+\LT@lastfoot=\box74
+\LT@cols=\count170
+\LT@rows=\count171
+\c@LT@tables=\count172
+\c@LT@chunks=\count173
 \LT@p@ftn=\toks23
 ) (C:\Users\s_glan02\AppData\Roaming\MiKTeX\2.9\tex\latex\booktabs\booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen173
-\lightrulewidth=\dimen174
-\cmidrulewidth=\dimen175
-\belowrulesep=\dimen176
-\belowbottomsep=\dimen177
-\aboverulesep=\dimen178
-\abovetopsep=\dimen179
-\cmidrulesep=\dimen180
-\cmidrulekern=\dimen181
-\defaultaddspace=\dimen182
-\@cmidla=\count171
-\@cmidlb=\count172
-\@aboverulesep=\dimen183
-\@belowrulesep=\dimen184
-\@thisruleclass=\count173
-\@lastruleclass=\count174
-\@thisrulewidth=\dimen185
+\heavyrulewidth=\dimen177
+\lightrulewidth=\dimen178
+\cmidrulewidth=\dimen179
+\belowrulesep=\dimen180
+\belowbottomsep=\dimen181
+\aboverulesep=\dimen182
+\abovetopsep=\dimen183
+\cmidrulesep=\dimen184
+\cmidrulekern=\dimen185
+\defaultaddspace=\dimen186
+\@cmidla=\count174
+\@cmidlb=\count175
+\@aboverulesep=\dimen187
+\@belowrulesep=\dimen188
+\@thisruleclass=\count176
+\@lastruleclass=\count177
+\@thisrulewidth=\dimen189
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 99.
+)
+\Gin@req@height=\dimen190
+\Gin@req@width=\dimen191
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grffile.sty"
+Package: grffile 2016/05/16 v1.17 Extended file name support for graphics (HO)
+Package grffile Info: \Gread@QTm patched on input line 253.
+Package grffile Info: \Gread@eps patched on input line 303.
+Package grffile Info: Option `multidot' is set to `true'.
+Package grffile Info: Option `extendedchars' is set to `false'.
+Package grffile Info: Option `space' is set to `true'.
+Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 486.
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\parskip.sty"
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
@@ -855,7 +906,7 @@ Package: parskip 2001/04/09 non-zero parskip adjustments
 . 
 . Alegreya scale = 0.9535399910540218.
 .................................................
-\g__fontspec_family_Alegreya_int=\count175
+\g__fontspec_family_Alegreya_int=\count178
 .................................................
 . fontspec info: "set-scale"
 . 
@@ -909,39 +960,47 @@ ing=tex-text;"
 x-text;"
 . - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
 .................................................
-LaTeX Info: Redefining \rmfamily on input line 60.
+LaTeX Info: Redefining \rmfamily on input line 109.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 11.44244pt on input line 60.
+(Font)              scaled to size 11.44244pt on input line 109.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\makeidx.sty"
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+)
+\@indexfile=\write4
+\openout4 = `_main.idx'.
+
+Writing index file _main.idx
 (_main.aux)
 \openout1 = `_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 76.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 128.
+
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 5.72122pt on input line 76.
-LaTeX Info: Redefining \microtypecontext on input line 76.
+(Font)              scaled to size 5.72122pt on input line 128.
+LaTeX Info: Redefining \microtypecontext on input line 128.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -951,51 +1010,38 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `Alegreya' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-\AtBeginShipoutBox=\box74
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
-Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
-LaTeX Info: Redefining \color on input line 86.
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: xetex.def on input line 147.
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\xetex.def"
-File: xetex.def 2016/07/11 v4.10 LaTeX color/graphics driver for XeTeX (L3/RRM/
-JK)
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-))
-Package hyperref Info: Link coloring ON on input line 76.
+\AtBeginShipoutBox=\box75
+Package hyperref Info: Link coloring ON on input line 128.
 (C:\Users\s_glan02\AppData\Roaming\MiKTeX\2.9\tex\latex\hyperref\nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count176
+\c@section@level=\count179
 )
-LaTeX Info: Redefining \ref on input line 76.
-LaTeX Info: Redefining \pageref on input line 76.
-LaTeX Info: Redefining \nameref on input line 76.
+LaTeX Info: Redefining \ref on input line 128.
+LaTeX Info: Redefining \pageref on input line 128.
+LaTeX Info: Redefining \nameref on input line 128.
 (_main.out) (_main.out)
-\@outlinefile=\write3
-\openout3 = `_main.out'.
+\@outlinefile=\write5
+\openout5 = `_main.out'.
 
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/it' will be
-(Font)              scaled to size 9.53537pt on input line 78.
+(Font)              scaled to size 9.53537pt on input line 130.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 7.6283pt on input line 78.
+(Font)              scaled to size 7.6283pt on input line 130.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/sl' in size <24> not available
 
 (Font)              Font shape `TU/Alegreya(0)/m/it' tried instead on input lin
-e 78.
+e 130.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/it' will be
-(Font)              scaled to size 22.88489pt on input line 78.
+(Font)              scaled to size 22.88489pt on input line 130.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/bx/sl' in size <24> not availabl
 e
 (Font)              Font shape `TU/Alegreya(0)/bx/it' tried instead on input li
-ne 78.
+ne 130.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/bx/it' will be
-(Font)              scaled to size 22.3894pt on input line 78.
+(Font)              scaled to size 22.3894pt on input line 130.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1037,6 +1083,42 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
+Underfull \vbox (badness 10000) detected at line 132
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 132
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 132
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 132
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 132
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 132
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 132
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 132
+[]
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1076,149 +1158,159 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [2
 
 ]
-Underfull \vbox (badness 10000) detected at line 88
+Underfull \vbox (badness 10000) detected at line 139
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 88
+Overfull \hbox (336.25pt too wide) detected at line 139
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 88
+Underfull \vbox (badness 10000) detected at line 139
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 88
+Overfull \hbox (336.25pt too wide) detected at line 139
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 88
+Underfull \vbox (badness 10000) detected at line 139
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 88
+Overfull \hbox (336.25pt too wide) detected at line 139
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 88
+Underfull \vbox (badness 10000) detected at line 139
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 88
+Overfull \hbox (336.25pt too wide) detected at line 139
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 88
+Underfull \hbox (badness 10000) detected at line 139
 []
  []
 
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/sl' in size <18> not available
 
 (Font)              Font shape `TU/Alegreya(0)/m/it' tried instead on input lin
-e 88.
+e 139.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/it' will be
-(Font)              scaled to size 17.16367pt on input line 88.
+(Font)              scaled to size 17.16367pt on input line 139.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/bx/sl' in size <18> not availabl
 e
 (Font)              Font shape `TU/Alegreya(0)/bx/it' tried instead on input li
-ne 88.
+ne 139.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/bx/it' will be
-(Font)              scaled to size 16.79205pt on input line 88.
-(_main.toc)
-\tf@toc=\write4
-\openout4 = `_main.toc'.
-
+(Font)              scaled to size 16.79205pt on input line 139.
+(_main.toc
+LaTeX Font Info:    Font shape `TU/Alegreya(0)/bx/n' will be
+(Font)              scaled to size 11.1947pt on input line 2.
+LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/it' will be
+(Font)              scaled to size 11.44244pt on input line 7.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 9.
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+(C:\Users\s_glan02\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-LatinModer
+nRoman.cfg
+File: mt-LatinModernRoman.cfg 2013/03/13 v1.0 microtype config. file: Latin Mod
+ern Roman (RS)
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 9.
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 9.
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 9.
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 9.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 9.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 9.
+LaTeX Font Info:    Try loading font information for U+msa on input line 9.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (C:\Users\s_glan02\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 9.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (C:\Users\s_glan02\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
+(Font)              scaled to size 9.53537pt on input line 9.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 9.53537pt on input line 90.
 [1
 
 
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
+])
+\tf@toc=\write6
+\openout6 = `_main.toc'.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[2
-
-]
-Underfull \vbox (badness 10000) detected at line 90
+[2]
+Underfull \vbox (badness 10000) detected at line 141
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 90
+Overfull \hbox (336.25pt too wide) detected at line 141
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 90
+Underfull \vbox (badness 10000) detected at line 141
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 90
+Overfull \hbox (336.25pt too wide) detected at line 141
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 90
+Underfull \vbox (badness 10000) detected at line 141
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 90
+Overfull \hbox (336.25pt too wide) detected at line 141
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 90
+Underfull \vbox (badness 10000) detected at line 141
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 90
+Overfull \hbox (336.25pt too wide) detected at line 141
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 90
+Underfull \hbox (badness 10000) detected at line 141
 []
  []
 
@@ -1226,8 +1318,8 @@ Underfull \hbox (badness 10000) detected at line 90
 Package hyperref Warning: bookmark level for unknown fm defaults to 0.
 
 (_main.lot)
-\tf@lot=\write5
-\openout5 = `_main.lot'.
+\tf@lot=\write7
+\openout7 = `_main.lot'.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1235,6 +1327,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [3
+
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1276,49 +1369,49 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [4
 
 ]
-Underfull \vbox (badness 10000) detected at line 91
+Underfull \vbox (badness 10000) detected at line 142
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 91
+Overfull \hbox (336.25pt too wide) detected at line 142
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 91
+Underfull \vbox (badness 10000) detected at line 142
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 91
+Overfull \hbox (336.25pt too wide) detected at line 142
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 91
+Underfull \vbox (badness 10000) detected at line 142
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 91
+Overfull \hbox (336.25pt too wide) detected at line 142
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 91
+Underfull \vbox (badness 10000) detected at line 142
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 91
+Overfull \hbox (336.25pt too wide) detected at line 142
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 91
+Underfull \hbox (badness 10000) detected at line 142
 []
  []
 
 (_main.lof)
-\tf@lof=\write6
-\openout6 = `_main.lof'.
+\tf@lof=\write8
+\openout8 = `_main.lof'.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1367,48 +1460,56 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [6
 
 ]
-Underfull \vbox (badness 10000) detected at line 92
+Underfull \vbox (badness 10000) detected at line 143
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 92
+Overfull \hbox (336.25pt too wide) detected at line 143
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 92
+Underfull \vbox (badness 10000) detected at line 143
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 92
+Overfull \hbox (336.25pt too wide) detected at line 143
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 92
+Underfull \vbox (badness 10000) detected at line 143
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 92
+Overfull \hbox (336.25pt too wide) detected at line 143
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 92
+Underfull \vbox (badness 10000) detected at line 143
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 92
+Overfull \hbox (336.25pt too wide) detected at line 143
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 92
+Underfull \hbox (badness 10000) detected at line 143
 []
  []
 
-LaTeX Font Info:    Font shape `TU/Alegreya(0)/bx/n' will be
-(Font)              scaled to size 11.1947pt on input line 95.
+
+LaTeX Warning: Reference `introduction' on page vii undefined on input line 156
+.
+
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/n' will be
+(Font)              scaled to size 8.39996pt on input line 167.
+Font mapping `tex-ansi.tec' for font `Source Code Pro' not found.
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/bx/n' will be
+(Font)              scaled to size 8.39996pt on input line 168.
+Font mapping `tex-ansi.tec' for font `Source Code Pro Bold' not found.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1417,93 +1518,37 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [7
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Font Info:    Try loading font information for TS1+SourceCodePro(0) on in
+put line 201.
+LaTeX Font Info:    No file TS1SourceCodePro(0).fd. on input line 201.
 
+LaTeX Font Warning: Font shape `TS1/SourceCodePro(0)/m/n' undefined
+(Font)              using `TS1/cmr/m/n' instead
+(Font)              for symbol `textquotesingle' on input line 201.
 
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+(C:\Users\s_glan02\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+Underfull \hbox (badness 10000) in paragraph at lines 199--204
+[]\TU/Alegreya(0)/m/n/12 Package names are in bold text (e.g., \TU/Alegreya(0)/
+bx/n/12 rmarkdown\TU/Alegreya(0)/m/n/12 ), and inline
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+Underfull \hbox (badness 10000) in paragraph at lines 199--204
+\TU/Alegreya(0)/m/n/12 code and filenames are formatted in a typewriter font (e
+.g.,
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
+Underfull \hbox (badness 4995) in paragraph at lines 199--204
+\TU/SourceCodePro(0)/m/n/12 knitr::knit(\TS1/SourceCodePro(0)/m/n/12 '\TU/Sourc
+eCodePro(0)/m/n/12 foo.Rmd\TS1/SourceCodePro(0)/m/n/12 '\TU/SourceCodePro(0)/m/
+n/12 )\TU/Alegreya(0)/m/n/12 ). Function names are followed by parenthe-
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[8
-
-]
-Underfull \vbox (badness 10000) detected at line 100
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 100
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 100
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 100
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 100
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 100
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 100
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 100
-[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 100
-[]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[9
-
-]
+[8] [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1543,47 +1588,233 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [10
 
 ]
-Underfull \vbox (badness 10000) detected at line 107
+Underfull \vbox (badness 10000) detected at line 229
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 107
+Overfull \hbox (336.25pt too wide) detected at line 229
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 107
+Underfull \vbox (badness 10000) detected at line 229
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 107
+Overfull \hbox (336.25pt too wide) detected at line 229
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 107
+Underfull \vbox (badness 10000) detected at line 229
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 107
+Overfull \hbox (336.25pt too wide) detected at line 229
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 107
+Underfull \vbox (badness 10000) detected at line 229
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 107
+Overfull \hbox (336.25pt too wide) detected at line 229
+[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 229
+[]
+ []
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 241.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 241.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 241.
+LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
+(Font)              scaled to size 6.67476pt on input line 241.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[11
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[12
+
+]
+Underfull \vbox (badness 10000) detected at line 250
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 250
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 250
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 250
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 250
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 250
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 250
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 250
+[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 250
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[13
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[14
+
+]
+Underfull \vbox (badness 10000) detected at line 262
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 262
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 262
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 262
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 262
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 262
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 262
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 262
 []
  []
 
 Chapter 1.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/bx/n' will be
-(Font)              scaled to size 22.3894pt on input line 108.
+(Font)              scaled to size 22.3894pt on input line 263.
 LaTeX Font Info:    Font shape `TU/Alegreya(0)/m/n' will be
-(Font)              scaled to size 22.88489pt on input line 108.
-No file _main.bbl.
+(Font)              scaled to size 22.88489pt on input line 263.
+
+LaTeX Warning: Reference `fig:hello' on page 1 undefined on input line 267.
+
+LaTeX Font Info:    Font shape `TU/Alegreya(0)/bx/n' will be
+(Font)              scaled to size 9.32892pt on input line 281.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1632,16 +1863,625 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [2
 
 ]
-! Undefined control sequence.
-l.114 \printindex
-                  
-Here is how much of TeX's memory you used:
- 20919 strings out of 427899
- 378073 string characters out of 3153117
- 474452 words of memory out of 3000000
- 24680 multiletter control sequences out of 15000+200000
- 3824 words of font info for 37 fonts, out of 3000000 for 9000
- 1328 hyphenation exceptions out of 8191
- 46i,7n,117p,10405b,347s stack positions out of 5000i,500n,10000p,200000b,50000s
+Underfull \vbox (badness 10000) detected at line 300
+ []
 
-Output written on _main.pdf (14 pages).
+
+Overfull \hbox (336.25pt too wide) detected at line 300
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 300
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 300
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 300
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 300
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 300
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 300
+[]
+ []
+
+Chapter 2.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[3
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[4
+
+]
+Underfull \vbox (badness 10000) detected at line 313
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 313
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 313
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 313
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 313
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 313
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 313
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 313
+[]
+ []
+
+Chapter 3.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[5
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[6
+
+]
+Underfull \vbox (badness 10000) detected at line 319
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 319
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 319
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 319
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 319
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 319
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 319
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 319
+[]
+ []
+
+Chapter 4.
+LaTeX Font Info:    Font shape `TU/Alegreya(0)/bx/n' will be
+(Font)              scaled to size 10.26181pt on input line 354.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[7
+
+] [8]
+Underfull \hbox (badness 2799) in paragraph at lines 440--443
+[]\TU/Alegreya(0)/m/n/12 The \TU/Alegreya(0)/bx/n/12 plot() \TU/Alegreya(0)/m/n
+/12 function produces plots showing missing genotypes, the
+ []
+
+[9]
+File: _main_files/figure-latex/qtlsummaryplot-1.pdf Graphic file (type QTm)
+<use  "_main_files/figure-latex/qtlsummaryplot-1.pdf" > [10]
+Underfull \hbox (badness 3148) in paragraph at lines 480--484
+[]\TU/Alegreya(0)/m/n/12 Another reason why genetic maps based on recombination
+ are bi-
+ []
+
+[11] [12]
+Underfull \hbox (badness 5475) in paragraph at lines 575--582
+[]\TU/Alegreya(0)/m/n/12 We first need to calculate these genotype probabilitie
+s using the
+ []
+
+[13]
+Underfull \hbox (badness 1028) in paragraph at lines 634--641
+[]\TU/Alegreya(0)/bx/n/12 EM (Expectation-Maximization) algorithm\TU/Alegreya(0
+)/m/n/12 : EM is usually applied to
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 641--648
+\TU/Alegreya(0)/m/n/12 gives improved approximations. Haley-Knott regression ca
+n give
+ []
+
+LaTeX Font Info:    Font shape `TU/SourceCodePro(0)/m/it' will be
+(Font)              scaled to size 8.39996pt on input line 662.
+Font mapping `tex-ansi.tec' for font `Source Code Pro Italic' not found.
+[14] [15]
+File: _main_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type QTm)
+<use  "_main_files/figure-latex/unnamed-chunk-17-1.pdf" > [16] [17]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[18
+
+]
+Underfull \vbox (badness 10000) detected at line 771
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 771
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 771
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 771
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 771
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 771
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 771
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 771
+[]
+ []
+
+Chapter 5.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[19
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[20
+
+]
+Underfull \vbox (badness 10000) detected at line 779
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 779
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 779
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 779
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 779
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 779
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 779
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 779
+[]
+ []
+
+Chapter 6.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[21
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[22
+
+]
+Underfull \vbox (badness 10000) detected at line 788
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 788
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 788
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 788
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 788
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 788
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 788
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 788
+[]
+ []
+
+Appendix A.
+(_main.bbl
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[23
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[24
+
+]
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[25
+
+]) (_main.ind [26]
+Underfull \hbox (badness 10000) detected at line 1
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[27
+
+
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 800.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 800.
+(_main.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 800.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 800.
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 22020 strings out of 427899
+ 396646 string characters out of 3153117
+ 503437 words of memory out of 3000000
+ 25673 multiletter control sequences out of 15000+200000
+ 28508 words of font info for 76 fonts, out of 3000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 46i,9n,117p,10405b,454s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on _main.pdf (43 pages).

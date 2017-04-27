@@ -17,13 +17,13 @@ RILs are experimental sister populations that have been produced by a very speci
 
 ### QTL analysis in R
 
-#### The "qtl" package
+#### The qtl package
 
 The best established R package for QTL mapping is Karl Broman's [**qtl** package](http://www.rqtl.org/) [@R-qtl]. It implements several techniques for finding QTLs, like Hidden Markov Models (HMM), interval mapping, Haley-Knott regression and multiple imputation. It is very well documented and comes with extensive example data and code.
 
 Here, I will introduce you to a basic QTL mapping workflow using the examples given in the package documentation and refer you to more complex analysis options where applicable.
 
-##### Installation and loading the package {-}
+##### Installation and loading the package
 
 If this is the first time you are using the **qtl** package, you need to install it from CRAN. The following line of code checks whether you already have the package, and if not installs it.
 
@@ -39,7 +39,7 @@ library(qtl)
 ```
 
 
-##### Loading the data {-}
+##### Loading the data
 
 I will be using the example data on murine hypertension that is provided in the package [@Sugiyama200170]. The **summary()** function shows you the main properties of the data:
 
@@ -53,11 +53,11 @@ The **plot()** function produces plots showing missing genotypes, the marker pos
 The [package manual](http://www.rqtl.org/tutorials/rqtltour.pdf) includes a description of various additional plotting functions, which I won't cover here.
 I also advise to examine each object with **head()** or **summary()** after you ran a function to get a feel for your data and the various steps you are taking in the analysis. 
 
-```{r fig.width=8, fig.height=6, fig.align='center'}
+```{r qtlsummaryplot, fig.cap='QTL summary plots showing missing genotypes (top left), marker positions on the genetic map (top right) and histogram(s) of phenotype(s) (bottom).', out.width='90%'}
 plot(hyper)
 ```
 
-##### Genetic map estimation {-}
+##### Genetic map estimation
 
 Before we proceed with the analysis, I typically recommend to replace the existing genetic map with an estimated one to reduce the potential errors. The genetic map represents all markers on a chromosome in a linear fashion. The **est.map()** function applies a Hidden Markov Model [@Lander01041987] to estimate the map with an assumed genotyping error rate (*error.prob*).
 
@@ -75,7 +75,8 @@ To correct for such biases, we can choose from the following mapping functions:
 The two most widely used mapping functions are Haldane's (the default) and Kosambi's. For this example, using Haldane's should be sufficient. Because our example is a backcross, we can assume no interference, meaning that all crossovers are independent [@lynch1998genetics].
 
 ```{r}
-newmap <- est.map(hyper, error.prob = 0.0001, map.function = "haldane")
+newmap <- est.map(hyper, error.prob = 0.0001, 
+                  map.function = "haldane")
 hyper <- replace.map(hyper, newmap)
 ```
 
@@ -103,7 +104,7 @@ for(i in 1:nrow(te)) {
 }
 ```
 
-##### Finding QTLs {-}
+##### Finding QTLs
 
 Now, we can proceed with the central step: mapping the QTLs.
 
@@ -112,7 +113,10 @@ Because the individuals in QTL studies are genotyped at specific marker location
 We first need to calculate these genotype probabilities using the **calc.genoprob()** function. We can define several parameters, like step size, the amount of error we want to allow for, the mapping function and step width. Here, we want to calculate genotype probabilities for every cM (step = 1), with a fixed step width and an error probability of 0.0001. As above, we are again using Haldane's mapping function.
 
 ```{r}
-hyper.clean <- calc.genoprob(hyper.clean, step = 1, error.prob = 0.0001, map.function = "haldane", stepwidth = "fixed")
+hyper.clean <- calc.genoprob(hyper.clean, step = 1, 
+                             error.prob = 0.0001, 
+                             map.function = "haldane", 
+                             stepwidth = "fixed")
 ```
 
 The simplest QTL model, we can run is single-QTL marker regression or interval mapping using the **scanone()** function. 
@@ -139,20 +143,26 @@ Here, I will show QTL mapping examples for the EM algorithm and for multiple imp
 
 ```{r}
 # EM algorithm
-out.em <- scanone(hyper.clean, pheno.col = 1, model = "normal", method = "em")
+out.em <- scanone(hyper.clean, pheno.col = 1, model = "normal", 
+                  method = "em")
 ```
 
 The multiple imputation method requires the use of the **sim.geno()** function before we call the mapping function. It calculates the joint genotype distribution based on the available marker information and uses it to perform the imputation of missin genotypes. With the **n.draws** parameter, we define how many imputations will be run. The more imputations steps we run, the more precise the genotypes but with increasing cost of computational time and power.
 
 ```{r cache=TRUE}
-hyper.clean <- sim.geno(hyper.clean, step = 1, n.draws = 100, error.prob = 0.0001, map.function = "haldane", stepwidth = "fixed")
-out.imp <- scanone(hyper.clean, pheno.col = 1, model = "normal", method = "imp")
+hyper.clean <- sim.geno(hyper.clean, step = 1, n.draws = 100, 
+                        error.prob = 0.0001, 
+                        map.function = "haldane", 
+                        stepwidth = "fixed")
+out.imp <- scanone(hyper.clean, pheno.col = 1, model = "normal", 
+                   method = "imp")
 ```
 
 Now that we have a LOD score for each marker position, we want to know which positions are significantly associated with the phenotype. To determine this, we will use the **scanone()** function again, but this time we want to calculate the genome-wide LOD score threshold  with a permutation test. Above this threshold we can consider a QTL to be statistically significant. Here, I am using a similar call as before, but I am specifying that we want to use 1000 permutations.
 
 ```{r cache = TRUE}
-operm.imp <- scanone(hyper.clean, pheno.col = 1, model = "normal", method = "imp", n.perm = 1000)
+operm.imp <- scanone(hyper.clean, pheno.col = 1, model = "normal", 
+                     method = "imp", n.perm = 1000)
 ```
 
 The **summary()** function will tell us our genome-wide LOD score threshold for a given significance value (here 0.05).
@@ -170,16 +180,17 @@ summary(out.imp, perms = operm.imp, alpha = 0.05, pvalues = TRUE)
 
 Now that we have our QTL, we can plot them with the **plot()** function. Here, I am plotting the results from both, the EM algorithm and the multiple imputation method. As expected, they do not differ much. The horizontal dotted line shows the genome-wide LOD threshold and our two significant QTL pop up nicely on chromosomes 1 and 4.
 
-```{r}
+```{r }
 plot(out.em, col = "blue")
 plot(out.imp, col = "red", add = TRUE)
 abline(h = lod[1], lty = 2)
-legend("topright", c("EM algorithm","Mult. imputation"), col = c("blue", "red"), lty = 1, lwd = 3)
+legend("topright", c("EM algorithm","Mult. imputation"), 
+       col = c("blue", "red"), lty = 1, lwd = 3)
 ```
 
-##### QTL interaction mapping {-}
+##### QTL interaction mapping
 
-##### Covariates in QTL models {-}
+##### Covariates in QTL models
 
 #### QTL Analysis using Bayesian Interval Mapping ("qtlbim" package)
 

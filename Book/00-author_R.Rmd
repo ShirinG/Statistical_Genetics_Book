@@ -6,8 +6,3 @@ I'm a big fan of R and I write [a blog](https://shiring.github.io/) where I expl
 
 You can find me and my package for gene expression analysis (exprAnalysis) on [Github](https://github.com/ShirinG).
 
----
-
-# The Basics of R {-}
-
-- introduce the basics of R or at a minimum provide a set of resources that can be used to learning R prior to starting this book

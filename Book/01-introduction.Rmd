@@ -2,8 +2,6 @@
 
 # Introduction to Statistical Genetics
 
-
-
 Now unplug your Internet cable, and start doing some serious work.
 
 We have a nice figure in Figure \@ref(fig:hello), and also a table in Table \@ref(tab:iris).
@@ -16,3 +14,10 @@ knitr::kable(
 ```
 
 More chapters to come in `02-foo.Rmd`, `03-bar`.Rmd, ...
+
+
+---
+
+# The Basics of R {-}
+
+- introduce the basics of R or at a minimum provide a set of resources that can be used to learning R prior to starting this book

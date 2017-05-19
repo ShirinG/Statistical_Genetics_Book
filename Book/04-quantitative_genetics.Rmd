@@ -53,7 +53,7 @@ The **plot()** function produces plots showing missing genotypes, the marker pos
 The [package manual](http://www.rqtl.org/tutorials/rqtltour.pdf) includes a description of various additional plotting functions, which I won't cover here.
 I also advise to examine each object with **head()** or **summary()** after you ran a function to get a feel for your data and the various steps you are taking in the analysis. 
 
-```{r qtlsummaryplot, fig.cap='QTL summary plots showing missing genotypes (top left), marker positions on the genetic map (top right) and histogram(s) of phenotype(s) (bottom).', out.width='90%'}
+```{r eval=FALSE}
 plot(hyper)
 ```
 
@@ -149,7 +149,7 @@ out.em <- scanone(hyper.clean, pheno.col = 1, model = "normal",
 
 The multiple imputation method requires the use of the **sim.geno()** function before we call the mapping function. It calculates the joint genotype distribution based on the available marker information and uses it to perform the imputation of missin genotypes. With the **n.draws** parameter, we define how many imputations will be run. The more imputations steps we run, the more precise the genotypes but with increasing cost of computational time and power.
 
-```{r cache=TRUE}
+```{r eval=FALSE}
 hyper.clean <- sim.geno(hyper.clean, step = 1, n.draws = 100, 
                         error.prob = 0.0001, 
                         map.function = "haldane", 
@@ -160,27 +160,27 @@ out.imp <- scanone(hyper.clean, pheno.col = 1, model = "normal",
 
 Now that we have a LOD score for each marker position, we want to know which positions are significantly associated with the phenotype. To determine this, we will use the **scanone()** function again, but this time we want to calculate the genome-wide LOD score threshold  with a permutation test. Above this threshold we can consider a QTL to be statistically significant. Here, I am using a similar call as before, but I am specifying that we want to use 1000 permutations.
 
-```{r cache = TRUE}
+```{r eval=FALSE}
 operm.imp <- scanone(hyper.clean, pheno.col = 1, model = "normal", 
                      method = "imp", n.perm = 1000)
 ```
 
 The **summary()** function will tell us our genome-wide LOD score threshold for a given significance value (here 0.05).
 
-```{r}
+```{r eval=FALSE}
 lod <- summary(operm.imp, alpha = 0.05)
 lod
 ```
 
 And now we can also refine our QTL results by including the significance threshold. This will give us the LOD score and estimated p-values for each marker above the threshold, around which we can now assume to have found a QTL for our trait of interest.
 
-```{r}
+```{r eval=FALSE}
 summary(out.imp, perms = operm.imp, alpha = 0.05, pvalues = TRUE)
 ```
 
 Now that we have our QTL, we can plot them with the **plot()** function. Here, I am plotting the results from both, the EM algorithm and the multiple imputation method. As expected, they do not differ much. The horizontal dotted line shows the genome-wide LOD threshold and our two significant QTL pop up nicely on chromosomes 1 and 4.
 
-```{r }
+```{r eval=FALSE}
 plot(out.em, col = "blue")
 plot(out.imp, col = "red", add = TRUE)
 abline(h = lod[1], lty = 2)

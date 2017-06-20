@@ -16,13 +16,12 @@ monofontoptions: "Scale=0.7"
 site: bookdown::bookdown_site
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, echo=FALSE, eval=FALSE}
 options(
   htmltools.dir.version = FALSE, formatR.indent = 2, width = 55, digits = 4
 )
 
-# install the packages needed by this book; you fill out c(), e.g. c('ggplot2', 'dplyr')
-lapply(c(), function(pkg) {
+lapply(c("bookdown", "qtl", "ggplot2"), function(pkg) {
   if (system.file(package = pkg) == '') install.packages(pkg)
 })
 ```
@@ -37,30 +36,8 @@ It is very important...
 
 ## Structure of the book {-}
 
-Chapters \@ref(introduction) introduces a new topic, and ...
+Chapters \@ref(introduction-to-statistical-genetics) introduces a new topic, and ...
 
-## Software information and conventions {-}
-
-I used the **knitr**\index{knitr} package and the **bookdown**\index{bookdown} package to compile my book. My R session information is shown below:
-
-```{r}
-sessionInfo()
-```
-
-Package names are in bold text (e.g., **rmarkdown**), and inline code and filenames are formatted in a typewriter font (e.g., `knitr::knit('foo.Rmd')`). Function names are followed by parentheses (e.g., `bookdown::render_book()`).
-
-Some packages are available via CRAN, while others are hosted at Bioconductor. I will
-provide package installation instructions at the beginning of each example, indicating where
-each package can be found.
-I will also be using the library() function, rather than require() for loading packages to
-make sure that we will get an error message in case packages have not been installed correctly.
-The example workflows included are meant to illustrate the theoretical concepts and get you
-started on your own analysis. They are minimal examples of the necessary steps but are not
-meant to substitute the package manuals. When you want to apply the workflows to your
-own data, I highly recommend going back to the package documentation to find out about
-additional functions and using the help() function to explore parameter options. I will be
-using the same naming and code schemes as in the package manuals to make finding the
-relevant parts easy.
 
 ## Acknowledgments {-}
 

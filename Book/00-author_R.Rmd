@@ -6,3 +6,35 @@ I'm a big fan of R and I write [a blog](https://shiring.github.io/) where I expl
 
 You can find me and my package for gene expression analysis (exprAnalysis) on [Github](https://github.com/ShirinG).
 
+
+# The Basics of R {-}
+
+> "R is an integrated suite of software facilities for data manipulation, calculation and graphical
+display." [An Introduction to R - Notes on R: A Programming Environment for Data Analysis and Graphics version 3.4.0 (2017-04-21) by W. N. Venables, D. M. Smith and the R Core Team](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
+
+R has originally been developed for statistical analysis and is a powerful toolbox for a wide range of tasks pertaining to data handling, statistical modeling and visualisation. It consists of a core distribution that contains basic functions and additional optional packages for specific tasks.
+
+R functions generally work with objects that have been assigned a value, e.g. a character string (`object = c("this", "is", "a", "string")`), numeric vector (`object = c(1, 2, 5, 70)`), model fit (`object = lm(speed ~ dist, data = cars)`), etc. Objects can be evaluated and compared.
+
+This books assumes a basic knowledge about getting data into R, calling functions, etc. but it is beyond the scope of this book to provide an in depth introduction to R. Luckily, there are a large number of free online resources available, like
+
+- [An Introduction to R - Notes on R: A Programming Environment for Data Analysis and Graphics version 3.4.0 (2017-04-21) by W. N. Venables, D. M. Smith and the R Core Team](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
+- [Data Camp](https://www.datacamp.com/courses/free-introduction-to-r)
+- [Penn State Statistics resources](https://onlinecourses.science.psu.edu/statprogram/r)
+- [by Germán Rodríguez from Princeton University](http://data.princeton.edu/R/introducingR.pdf)
+- etc.
+
+## Software information and conventions {-}
+
+Package names are written in bold text (e.g., **rmarkdown**), and inline code and filenames are formatted in a typewriter font (e.g., `plot()`). Function names are followed by parentheses (e.g., `bookdown::render_book()`).
+
+Some packages are available via [CRAN](https://cran.r-project.org/)\index{CRAN}, while others are hosted at [Bioconductor](https://www.bioconductor.org/)\index{Bioconductor}. I will provide package installation instructions at the beginning of each section, indicating where each package can be found.
+I will also be using the `library()` function, rather than `require()` for loading packages to make sure that we will get an error message in case packages have not been installed correctly.
+
+The example workflows included are meant to illustrate the theoretical concepts and get you started on your own analysis. They are minimal examples of the necessary steps but are not meant to substitute the package manuals. When you want to apply the workflows to your own data, I highly recommend going back to the package documentation to find out about additional functions and using the `help()` function to explore parameter options. I will be using the same naming and code schemes as in the package manuals to make finding the relevant parts easy.
+
+I used the **knitr**\index{knitr} package and the **bookdown**\index{bookdown} package to compile this book. My R session information is shown below:
+
+```{r}
+sessionInfo()
+```

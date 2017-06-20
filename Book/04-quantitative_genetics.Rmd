@@ -1,6 +1,5 @@
 # Quantitative Genetics
 
-
 ## QTL analysis
 
 Quantitative Trait Loci (QTL) are regions in the genome that are associated with variation in a quantitative trait. Quantitative traits are phentoypes that can be measured on a continuous scale, like height, weight, etc.
@@ -19,13 +18,13 @@ RILs are experimental sister populations that have been produced by a very speci
 
 #### The qtl package
 
-The best established R package for QTL mapping is Karl Broman's [**qtl** package](http://www.rqtl.org/) [@R-qtl]. It implements several techniques for finding QTLs, like Hidden Markov Models (HMM), interval mapping, Haley-Knott regression and multiple imputation. It is very well documented and comes with extensive example data and code.
+The most established R package for QTL mapping is Karl Broman's [**qtl** package](http://www.rqtl.org/)\index{qtl} [@R-qtl]. It implements several techniques for finding QTLs, like Hidden Markov Models (HMM), interval mapping, Haley-Knott regression and multiple imputation. It is very well documented and comes with extensive example data and code.
 
 Here, I will introduce you to a basic QTL mapping workflow using the examples given in the package documentation and refer you to more complex analysis options where applicable.
 
 ##### Installation and loading the package
 
-If this is the first time you are using the **qtl** package, you need to install it from CRAN. The following line of code checks whether you already have the package, and if not installs it.
+If this is the first time you are using the **qtl**\index{qtl} package, you need to install it from CRAN. The following line of code checks whether you already have the package, and if not installs it.
 
 ```{r}
 pkg = "qtl"
@@ -41,25 +40,30 @@ library(qtl)
 
 ##### Loading the data
 
-I will be using the example data on murine hypertension that is provided in the package [@Sugiyama200170]. The **summary()** function shows you the main properties of the data:
+I will be using the example data on murine hypertension that is provided in the package [@Sugiyama200170]. In this dataset, we find information on 250 male mice from a reciprocal backcross between two strains: 1) the salt-sensitive C57BL/6J strain or 2) the inbred normotensive A/J strain. These mice were then given 1% salt water over two weeks and their hypertension blood pressure levels were measured.
 
 ```{r}
 data(hyper)
+```
+
+It is - as always - a good idea to familiarize yourself with the data to identify potential problems or errors before spending hours or days on an analysis that leads nowhere.
+The `summary()` function shows you the main properties of the data, like number of individuals and phenotypes, genotype information and proportion of missing data.
+
+```{r}
 summary(hyper)
 ```
 
-The **plot()** function produces plots showing missing genotypes, the marker positions and the distribution of phenotypes or traits. This will give you a first idea of your data.
+The `plot()` function produces plots that show missing genotypes, marker positions and the distribution of phenotypes or traits. Figure \@ref(fig:qtl-plot-hyper) will give you a first idea about the quality of your data.
 
 The [package manual](http://www.rqtl.org/tutorials/rqtltour.pdf) includes a description of various additional plotting functions, which I won't cover here.
-I also advise to examine each object with **head()** or **summary()** after you ran a function to get a feel for your data and the various steps you are taking in the analysis. 
 
-```{r eval=FALSE}
+```{r qtl-plot-hyper, fig.cap = "Plots providing an overview over missing genotypes, marker positions and the distribution of phenotypes or traits. Plots were generated with `qtl::plot()`. In the upper left plot markers are shown against individuals, with black areas showing missing information. As we can see here, there is quite a bit of missing data. The upper right plot shows the marker positions on the chromosomes. Here, we can easily see that chromosomes 1, 4, 11 and 17 have clusters of more densely positioned markers. The lower plots show phenotype information, either as a histogram for continuous values or as a bar chart for categorical factors.", fig.asp = 1, out.width = '90%', fig.align = 'center'}
 plot(hyper)
 ```
 
 ##### Genetic map estimation
 
-Before we proceed with the analysis, I typically recommend to replace the existing genetic map with an estimated one to reduce the potential errors. The genetic map represents all markers on a chromosome in a linear fashion. The **est.map()** function applies a Hidden Markov Model [@Lander01041987] to estimate the map with an assumed genotyping error rate (*error.prob*).
+Before we proceed with the analysis, I typically recommend replacing the existing genetic map with an estimated one to reduce the potential errors. The genetic map represents all markers on a chromosome in a linear fashion. The `est.map() function applies a Hidden Markov Model [@Lander01041987] to estimate the map with an assumed genotyping error rate (*error.prob*).
 
 Here, we can also specify the mapping function (*map.function*) that we want to use to convert genetic distance to recombination fraction. The distance between two markers is usually given as a unit of genetic linkage, called *centimorgan (cM)* One cM represents the distance with an average of 0.01 crossover events in one generation (i.e. 1% recombination). However, this representation of distance underestimates the actual recombination fraction, which is inherently not additive. With increasing distance the chance of double crossovers increases, so that they are in a way "invisible" to the traditional estimation of recombination distance.
 
@@ -80,23 +84,31 @@ newmap <- est.map(hyper, error.prob = 0.0001,
 hyper <- replace.map(hyper, newmap)
 ```
 
-We can now estimate the recombination fractions between all pairs of markers. The **est.rf()** function also calculates the LOD scores. LOD stands for "likelihood of the odds" and is a measure of linkage. In QTL mapping we calculate LOD scores for the genetic markers and a threshold, above which we consider a QTL statistically significant in its association with the trait.
+We can now estimate the recombination fractions between all pairs of markers. The `est.rf()` function also calculates the LOD scores. LOD stands for "likelihood of the odds" and is a measure of linkage. In QTL mapping we calculate LOD scores for the genetic markers and a threshold, above which we consider a QTL statistically significant in its association with the trait.
 
-```{r fig.width=8, fig.height=8, fig.align='center'}
+```{r }
 hyper <- est.rf(hyper)
 ```
 
-The **calc.errorlod()** function calculates the genotyping errors according to @Lincoln1992604. We can see which markers have an error LOD above a certain threshold (cutoff) with the **top.errorlod()** function.
+The `calc.errorlod()` function calculates the genotyping errors according to @Lincoln1992604. We can see which markers have an error LOD above a certain threshold (cutoff) with the `top.errorlod()` function (Table \@ref(tab:qtl-te)).
 
 ```{r}
 hyper <- calc.errorlod(hyper, error.prob = 0.0001)
 te <- top.errorlod(hyper, cutoff = 3)
-te
 ```
+
+```{r qtl-te, echo=FALSE}
+knitr::kable(
+  te, caption = 'Markers with an error LOD bigger than 3 under an error probability of 0.0001 indicate potential genotyping errors.',
+  booktabs = TRUE
+)
+```
+
+These potentially erroneous markers can then be removed or set to `NA`.
 
 ```{r}
 hyper.clean <- hyper
-for(i in 1:nrow(te)) {
+for (i in 1:nrow(te)) {
   chr <- te$chr[i]
   id <- te$id[i]
   mar <- te$marker[i]
@@ -104,13 +116,14 @@ for(i in 1:nrow(te)) {
 }
 ```
 
+
 ##### Finding QTLs
 
 Now, we can proceed with the central step: mapping the QTLs.
 
 Because the individuals in QTL studies are genotyped at specific marker locations throughout the genome, we inherently have to deal with the missing information about genotypes between markers. Hidden Markov Models (HMM) can help us overcome this problem by calculating genotype probabilities between markers based on the joint genotype distribution.
 
-We first need to calculate these genotype probabilities using the **calc.genoprob()** function. We can define several parameters, like step size, the amount of error we want to allow for, the mapping function and step width. Here, we want to calculate genotype probabilities for every cM (step = 1), with a fixed step width and an error probability of 0.0001. As above, we are again using Haldane's mapping function.
+We first need to calculate these genotype probabilities using the `calc.genoprob()` function. We can define several parameters, like step size, the amount of error we want to allow for, the mapping function and step width. Here, we want to calculate genotype probabilities for every cM (step = 1), with a fixed step width and an error probability of 0.0001. As above, we are again using Haldane's mapping function.
 
 ```{r}
 hyper.clean <- calc.genoprob(hyper.clean, step = 1, 
@@ -119,7 +132,7 @@ hyper.clean <- calc.genoprob(hyper.clean, step = 1,
                              stepwidth = "fixed")
 ```
 
-The simplest QTL model, we can run is single-QTL marker regression or interval mapping using the **scanone()** function. 
+The simplest QTL model, we can run is single-QTL marker regression or interval mapping using the `scanone()` function. 
 
 These simple methods can give a good estimation of QTLs but they can also introduce bias, especially with multiple QTL in close proximity. More advanced mapping approaches, like Composite Interval Mapping (CIM) are discussed later on.
 
@@ -147,13 +160,14 @@ out.em <- scanone(hyper.clean, pheno.col = 1, model = "normal",
                   method = "em")
 ```
 
-The multiple imputation method requires the use of the **sim.geno()** function before we call the mapping function. It calculates the joint genotype distribution based on the available marker information and uses it to perform the imputation of missin genotypes. With the **n.draws** parameter, we define how many imputations will be run. The more imputations steps we run, the more precise the genotypes but with increasing cost of computational time and power.
+The multiple imputation method requires the use of the `sim.geno()` function before we call the mapping function. It calculates the joint genotype distribution based on the available marker information and uses it to perform the imputation of missin genotypes. With the `n.draws` parameter, we define how many imputations will be run. The more imputations steps we run, the more precise the genotypes but with increasing cost of computational time and power.
 
-```{r eval=FALSE}
+```{r cache=TRUE}
 hyper.clean <- sim.geno(hyper.clean, step = 1, n.draws = 100, 
                         error.prob = 0.0001, 
                         map.function = "haldane", 
                         stepwidth = "fixed")
+
 out.imp <- scanone(hyper.clean, pheno.col = 1, model = "normal", 
                    method = "imp")
 ```
@@ -165,22 +179,30 @@ operm.imp <- scanone(hyper.clean, pheno.col = 1, model = "normal",
                      method = "imp", n.perm = 1000)
 ```
 
-The **summary()** function will tell us our genome-wide LOD score threshold for a given significance value (here 0.05).
+```{r echo=FALSE, eval=FALSE}
+save(operm.imp, file = "operm.imp.RData")
+```
 
-```{r eval=FALSE}
+```{r echo=FALSE}
+load("operm.imp.RData")
+```
+
+The `summary()` function will tell us our genome-wide LOD score threshold for a given significance value (here 0.05).
+
+```{r }
 lod <- summary(operm.imp, alpha = 0.05)
 lod
 ```
 
 And now we can also refine our QTL results by including the significance threshold. This will give us the LOD score and estimated p-values for each marker above the threshold, around which we can now assume to have found a QTL for our trait of interest.
 
-```{r eval=FALSE}
+```{r }
 summary(out.imp, perms = operm.imp, alpha = 0.05, pvalues = TRUE)
 ```
 
-Now that we have our QTL, we can plot them with the **plot()** function. Here, I am plotting the results from both, the EM algorithm and the multiple imputation method. As expected, they do not differ much. The horizontal dotted line shows the genome-wide LOD threshold and our two significant QTL pop up nicely on chromosomes 1 and 4.
+Now that we have our QTL, we can plot them with the `plot()` function. Here, I am plotting the results from both, the EM algorithm and the multiple imputation method. As expected, they do not differ much. The horizontal dotted line shows the genome-wide LOD threshold and our two significant QTL pop up nicely on chromosomes 1 and 4.
 
-```{r eval=FALSE}
+```{r qtl-plot-out, fig.cap = "QTL plot showing LOD scores and QTL positions with EM algorithm and the multiple imputation. The dotted line indicates the genome-wide LOD score threshold for a p < 0.05. Every peak above this threshold is considered a QTL.", fig.asp = 0.5, out.width = '90%', fig.align = 'center'}
 plot(out.em, col = "blue")
 plot(out.imp, col = "red", add = TRUE)
 abline(h = lod[1], lty = 2)
@@ -198,3 +220,5 @@ legend("topright", c("EM algorithm","Mult. imputation"),
 
 
 ## Variance and heritability
+
+## Exercises: Quantitative Genetics {-}

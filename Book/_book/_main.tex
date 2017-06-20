@@ -113,8 +113,19 @@
 
 \title{Statistical Genetics: Analyses with R}
 \author{Dr.~Shirin Glander}
-\date{2017-05-18}
+\date{2017-06-20}
 
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
 \maketitle
@@ -144,69 +155,8 @@ It is very important\ldots{}
 \section*{Structure of the book}\label{structure-of-the-book}
 
 
-Chapters \ref{introduction} introduces a new topic, and \ldots{}
-
-\section*{Software information and
-conventions}\label{software-information-and-conventions}
-
-
-I used the \textbf{knitr}\index{knitr} package and the
-\textbf{bookdown}\index{bookdown} package to compile my book. My R
-session information is shown below:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{sessionInfo}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## R version 3.4.0 (2017-04-21)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 7 x64 (build 7601) Service Pack 1
-## 
-## Matrix products: default
-## 
-## locale:
-## [1] LC_COLLATE=English_United States.1252 
-## [2] LC_CTYPE=English_United States.1252   
-## [3] LC_MONETARY=English_United States.1252
-## [4] LC_NUMERIC=C                          
-## [5] LC_TIME=English_United States.1252    
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets 
-## [6] methods   base     
-## 
-## loaded via a namespace (and not attached):
-##  [1] compiler_3.4.0  backports_1.0.5 bookdown_0.3   
-##  [4] magrittr_1.5    rprojroot_1.2   tools_3.4.0    
-##  [7] htmltools_0.3.6 rstudioapi_0.6  yaml_2.1.14    
-## [10] Rcpp_0.12.10    stringi_1.1.5   rmarkdown_1.5  
-## [13] knitr_1.15.1    stringr_1.2.0   digest_0.6.12  
-## [16] evaluate_0.10
-\end{verbatim}
-
-Package names are in bold text (e.g., \textbf{rmarkdown}), and inline
-code and filenames are formatted in a typewriter font (e.g.,
-\texttt{knitr::knit(\textquotesingle{}foo.Rmd\textquotesingle{})}).
-Function names are followed by parentheses (e.g.,
-\texttt{bookdown::render\_book()}).
-
-Some packages are available via CRAN, while others are hosted at
-Bioconductor. I will provide package installation instructions at the
-beginning of each example, indicating where each package can be found. I
-will also be using the library() function, rather than require() for
-loading packages to make sure that we will get an error message in case
-packages have not been installed correctly. The example workflows
-included are meant to illustrate the theoretical concepts and get you
-started on your own analysis. They are minimal examples of the necessary
-steps but are not meant to substitute the package manuals. When you want
-to apply the workflows to your own data, I highly recommend going back
-to the package documentation to find out about additional functions and
-using the help() function to explore parameter options. I will be using
-the same naming and code schemes as in the package manuals to make
-finding the relevant parts easy.
+Chapters \ref{introduction-to-statistical-genetics} introduces a new
+topic, and \ldots{}
 
 \section*{Acknowledgments}\label{acknowledgments}
 
@@ -236,57 +186,121 @@ ballroom and Latin dance courses.
 You can find me and my package for gene expression analysis
 (exprAnalysis) on \href{https://github.com/ShirinG}{Github}.
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
 \chapter*{The Basics of R}\label{the-basics-of-r}
 
+
+\begin{quote}
+``R is an integrated suite of software facilities for data manipulation,
+calculation and graphical display.''
+\href{https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf}{An
+Introduction to R - Notes on R: A Programming Environment for Data
+Analysis and Graphics version 3.4.0 (2017-04-21) by W. N. Venables, D.
+M. Smith and the R Core Team}
+\end{quote}
+
+R has originally been developed for statistical analysis and is a
+powerful toolbox for a wide range of tasks pertaining to data handling,
+statistical modeling and visualisation. It consists of a core
+distribution that contains basic functions and additional optional
+packages for specific tasks.
+
+R functions generally work with objects that have been assigned a value,
+e.g.~a character string
+(\texttt{object\ =\ c("this",\ "is",\ "a",\ "string")}), numeric vector
+(\texttt{object\ =\ c(1,\ 2,\ 5,\ 70)}), model fit
+(\texttt{object\ =\ lm(speed\ \textasciitilde{}\ dist,\ data\ =\ cars)}),
+etc. Objects can be evaluated and compared.
+
+This books assumes a basic knowledge about getting data into R, calling
+functions, etc. but it is beyond the scope of this book to provide an in
+depth introduction to R. Luckily, there are a large number of free
+online resources available, like
 
 \begin{itemize}
 \tightlist
 \item
-  introduce the basics of R or at a minimum provide a set of resources
-  that can be used to learning R prior to starting this book
+  \href{https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf}{An
+  Introduction to R - Notes on R: A Programming Environment for Data
+  Analysis and Graphics version 3.4.0 (2017-04-21) by W. N. Venables, D.
+  M. Smith and the R Core Team}
+\item
+  \href{https://www.datacamp.com/courses/free-introduction-to-r}{Data
+  Camp}
+\item
+  \href{https://onlinecourses.science.psu.edu/statprogram/r}{Penn State
+  Statistics resources}
+\item
+  \href{http://data.princeton.edu/R/introducingR.pdf}{by Germán
+  Rodríguez from Princeton University}
+\item
+  etc.
 \end{itemize}
+
+\section*{Software information and
+conventions}\label{software-information-and-conventions}
+
+
+Package names are in bold text (e.g., \textbf{rmarkdown}), and inline
+code and filenames are formatted in a typewriter font (e.g.,
+\texttt{plot()}). Function names are followed by parentheses (e.g.,
+\texttt{bookdown::render\_book()}).
+
+Some packages are available via
+\href{https://cran.r-project.org/}{CRAN}\index{CRAN}, while others are
+hosted at
+\href{https://www.bioconductor.org/}{Bioconductor}\index{Bioconductor}.
+I will provide package installation instructions at the beginning of
+each section, indicating where each package can be found. I will also be
+using the \texttt{library()} function, rather than \texttt{require()}
+for loading packages to make sure that we will get an error message in
+case packages have not been installed correctly.
+
+The example workflows included are meant to illustrate the theoretical
+concepts and get you started on your own analysis. They are minimal
+examples of the necessary steps but are not meant to substitute the
+package manuals. When you want to apply the workflows to your own data,
+I highly recommend going back to the package documentation to find out
+about additional functions and using the \texttt{help()} function to
+explore parameter options. I will be using the same naming and code
+schemes as in the package manuals to make finding the relevant parts
+easy.
+
+I used the \textbf{knitr}\index{knitr} package and the
+\textbf{bookdown}\index{bookdown} package to compile this book. My R
+session information is shown below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 3.4.0 (2017-04-21)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.3
+## 
+## Matrix products: default
+## BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] compiler_3.4.0  backports_1.1.0 bookdown_0.4    magrittr_1.5   
+##  [5] rprojroot_1.2   tools_3.4.0     htmltools_0.3.6 rstudioapi_0.6 
+##  [9] yaml_2.1.14     Rcpp_0.12.11    stringi_1.1.5   rmarkdown_1.5  
+## [13] knitr_1.16      stringr_1.2.0   digest_0.6.12   evaluate_0.10
+\end{verbatim}
 
 \mainmatter
 
 \chapter{Introduction to Statistical
 Genetics}\label{introduction-to-statistical-genetics}
-
-Now unplug your Internet cable, and start doing some serious work.
-
-We have a nice figure in Figure \ref{fig:hello}, and also a table in
-Table \ref{tab:iris}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{head}\NormalTok{(iris), }\DataTypeTok{caption =} \StringTok{'The boring iris data.'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:iris}The boring iris data.}
-\centering
-\begin{tabular}[t]{rrrrl}
-\toprule
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\midrule
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-More chapters to come in \texttt{02-foo.Rmd}, \texttt{03-bar}.Rmd,
-\ldots{}
 
 \chapter{Evolutionary Genetics}\label{evolutionary-genetics}
 
@@ -360,12 +374,12 @@ alleles \citep{Pollard2012}.
 
 \subsubsection{The qtl package}\label{the-qtl-package}
 
-The best established R package for QTL mapping is Karl Broman's
-\href{http://www.rqtl.org/}{\textbf{qtl} package} \citep{R-qtl}. It
-implements several techniques for finding QTLs, like Hidden Markov
-Models (HMM), interval mapping, Haley-Knott regression and multiple
-imputation. It is very well documented and comes with extensive example
-data and code.
+The most established R package for QTL mapping is Karl Broman's
+\href{http://www.rqtl.org/}{\textbf{qtl} package}\index{qtl}
+\citep{R-qtl}. It implements several techniques for finding QTLs, like
+Hidden Markov Models (HMM), interval mapping, Haley-Knott regression and
+multiple imputation. It is very well documented and comes with extensive
+example data and code.
 
 Here, I will introduce you to a basic QTL mapping workflow using the
 examples given in the package documentation and refer you to more
@@ -374,9 +388,9 @@ complex analysis options where applicable.
 \paragraph{Installation and loading the
 package}\label{installation-and-loading-the-package}
 
-If this is the first time you are using the \textbf{qtl} package, you
-need to install it from CRAN. The following line of code checks whether
-you already have the package, and if not installs it.
+If this is the first time you are using the \textbf{qtl}\index{qtl}
+package, you need to install it from CRAN. The following line of code
+checks whether you already have the package, and if not installs it.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -396,12 +410,26 @@ You can then load the package:
 \paragraph{Loading the data}\label{loading-the-data}
 
 I will be using the example data on murine hypertension that is provided
-in the package \citep{Sugiyama200170}. The \textbf{summary()} function
-shows you the main properties of the data:
+in the package \citep{Sugiyama200170}. In this dataset, we find
+information on 250 male mice from a reciprocal backcross between two
+strains: 1) the salt-sensitive C57BL/6J strain or 2) the inbred
+normotensive A/J strain. These mice were then given 1\% salt water over
+two weeks and their hypertension blood pressure levels were measured.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{data}\NormalTok{(hyper)}
+\end{Highlighting}
+\end{Shaded}
+
+It is - as always - a good idea to familiarize yourself with the data to
+identify potential problems or errors before spending hours or days on
+an analysis that leads nowhere. The \texttt{summary()} function shows
+you the main properties of the data, like number of individuals and
+phenotypes, genotype information and proportion of missing data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{summary}\NormalTok{(hyper)}
 \end{Highlighting}
 \end{Shaded}
@@ -415,28 +443,25 @@ shows you the main properties of the data:
 ##     Percent phenotyped: 100 100 
 ## 
 ##     No. chromosomes:    20 
-##         Autosomes:      1 2 3 4 5 6 7 8 9 10 11 12 13 
-##                         14 15 16 17 18 19 
+##         Autosomes:      1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 
 ##         X chr:          X 
 ## 
 ##     Total markers:      174 
-##     No. markers:        22 8 6 20 14 11 7 6 5 5 14 5 5 
-##                         5 11 6 12 4 4 4 
+##     No. markers:        22 8 6 20 14 11 7 6 5 5 14 5 5 5 11 6 12 4 4 4 
 ##     Percent genotyped:  47.7 
 ##     Genotypes (%):    
 ##           Autosomes:    BB:50.1  BA:49.9 
 ##        X chromosome:    BY:53.0  AY:47.0
 \end{verbatim}
 
-The \textbf{plot()} function produces plots showing missing genotypes,
-the marker positions and the distribution of phenotypes or traits. This
-will give you a first idea of your data.
+The \texttt{plot()} function produces plots that show missing genotypes,
+marker positions and the distribution of phenotypes or traits. Figure
+\ref{fig:qtl-plot-hyper} will give you a first idea about the quality of
+your data.
 
 The \href{http://www.rqtl.org/tutorials/rqtltour.pdf}{package manual}
 includes a description of various additional plotting functions, which I
-won't cover here. I also advise to examine each object with
-\textbf{head()} or \textbf{summary()} after you ran a function to get a
-feel for your data and the various steps you are taking in the analysis.
+won't cover here.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -444,14 +469,23 @@ feel for your data and the various steps you are taking in the analysis.
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{_main_files/figure-latex/qtl-plot-hyper-1} 
+
+}
+
+\caption{Plots providing an overview over missing genotypes, marker positions and the distribution of phenotypes or traits. Plots were generated with `qtl::plot()`. In the upper left plot markers are shown against individuals, with black areas showing missing information. As we can see here, there is quite a bit of missing data. The upper right plot shows the marker positions on the chromosomes. Here, we can easily see that chromosomes 1, 4, 11 and 17 have clusters of more densely positioned markers. The lower plots show phenotype information, either as a histogram for continuous values or as a bar chart for categorical factors.}\label{fig:qtl-plot-hyper}
+\end{figure}
+
 \paragraph{Genetic map estimation}\label{genetic-map-estimation}
 
-Before we proceed with the analysis, I typically recommend to replace
-the existing genetic map with an estimated one to reduce the potential
+Before we proceed with the analysis, I typically recommend replacing the
+existing genetic map with an estimated one to reduce the potential
 errors. The genetic map represents all markers on a chromosome in a
-linear fashion. The \textbf{est.map()} function applies a Hidden Markov
-Model \citep{Lander01041987} to estimate the map with an assumed
-genotyping error rate (\emph{error.prob}).
+linear fashion. The `est.map() function applies a Hidden Markov Model
+\citep{Lander01041987} to estimate the map with an assumed genotyping
+error rate (\emph{error.prob}).
 
 Here, we can also specify the mapping function (\emph{map.function})
 that we want to use to convert genetic distance to recombination
@@ -503,7 +537,7 @@ meaning that all crossovers are independent \citep{lynch1998genetics}.
 \end{Shaded}
 
 We can now estimate the recombination fractions between all pairs of
-markers. The \textbf{est.rf()} function also calculates the LOD scores.
+markers. The \texttt{est.rf()} function also calculates the LOD scores.
 LOD stands for ``likelihood of the odds'' and is a measure of linkage.
 In QTL mapping we calculate LOD scores for the genetic markers and a
 threshold, above which we consider a QTL statistically significant in
@@ -515,32 +549,42 @@ its association with the trait.
 \end{Highlighting}
 \end{Shaded}
 
-The \textbf{calc.errorlod()} function calculates the genotyping errors
+The \texttt{calc.errorlod()} function calculates the genotyping errors
 according to \citet{Lincoln1992604}. We can see which markers have an
 error LOD above a certain threshold (cutoff) with the
-\textbf{top.errorlod()} function.
+\texttt{top.errorlod()} function (Table \ref{tab:qtl-te}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{hyper <-}\StringTok{ }\KeywordTok{calc.errorlod}\NormalTok{(hyper, }\DataTypeTok{error.prob =} \FloatTok{0.0001}\NormalTok{)}
 \NormalTok{te <-}\StringTok{ }\KeywordTok{top.errorlod}\NormalTok{(hyper, }\DataTypeTok{cutoff =} \DecValTok{3}\NormalTok{)}
-\NormalTok{te}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-##   chr  id   marker errorlod
-## 1   4 102 D4Mit288    3.325
-## 2   4 107 D4Mit111    3.262
-## 3   4 216 D4Mit214    3.261
-## 4  11  57 D11Mit82    3.021
-## 5  11 118 D11Mit82    3.021
-\end{verbatim}
+\begin{table}
+
+\caption{\label{tab:qtl-te}Markers with an error LOD bigger than 3 under an error probability of 0.0001 indicate potential genotyping errors.}
+\centering
+\begin{tabular}[t]{lrlr}
+\toprule
+chr & id & marker & errorlod\\
+\midrule
+4 & 102 & D4Mit288 & 3.324582\\
+4 & 107 & D4Mit111 & 3.262205\\
+4 & 216 & D4Mit214 & 3.261092\\
+11 & 57 & D11Mit82 & 3.021105\\
+11 & 118 & D11Mit82 & 3.021105\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These potentially erroneous markers can then be removed or set to
+\texttt{NA}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{hyper.clean <-}\StringTok{ }\NormalTok{hyper}
-\NormalTok{for(i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(te)) \{}
+\NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(te)) \{}
   \NormalTok{chr <-}\StringTok{ }\NormalTok{te$chr[i]}
   \NormalTok{id <-}\StringTok{ }\NormalTok{te$id[i]}
   \NormalTok{mar <-}\StringTok{ }\NormalTok{te$marker[i]}
@@ -560,7 +604,7 @@ Models (HMM) can help us overcome this problem by calculating genotype
 probabilities between markers based on the joint genotype distribution.
 
 We first need to calculate these genotype probabilities using the
-\textbf{calc.genoprob()} function. We can define several parameters,
+\texttt{calc.genoprob()} function. We can define several parameters,
 like step size, the amount of error we want to allow for, the mapping
 function and step width. Here, we want to calculate genotype
 probabilities for every cM (step = 1), with a fixed step width and an
@@ -577,7 +621,7 @@ mapping function.
 \end{Shaded}
 
 The simplest QTL model, we can run is single-QTL marker regression or
-interval mapping using the \textbf{scanone()} function.
+interval mapping using the \texttt{scanone()} function.
 
 These simple methods can give a good estimation of QTLs but they can
 also introduce bias, especially with multiple QTL in close proximity.
@@ -653,10 +697,10 @@ multiple imputation:
 \end{Shaded}
 
 The multiple imputation method requires the use of the
-\textbf{sim.geno()} function before we call the mapping function. It
+\texttt{sim.geno()} function before we call the mapping function. It
 calculates the joint genotype distribution based on the available marker
 information and uses it to perform the imputation of missin genotypes.
-With the \textbf{n.draws} parameter, we define how many imputations will
+With the \texttt{n.draws} parameter, we define how many imputations will
 be run. The more imputations steps we run, the more precise the
 genotypes but with increasing cost of computational time and power.
 
@@ -666,6 +710,7 @@ genotypes but with increasing cost of computational time and power.
                         \DataTypeTok{error.prob =} \FloatTok{0.0001}\NormalTok{, }
                         \DataTypeTok{map.function =} \StringTok{"haldane"}\NormalTok{, }
                         \DataTypeTok{stepwidth =} \StringTok{"fixed"}\NormalTok{)}
+
 \NormalTok{out.imp <-}\StringTok{ }\KeywordTok{scanone}\NormalTok{(hyper.clean, }\DataTypeTok{pheno.col =} \DecValTok{1}\NormalTok{, }\DataTypeTok{model =} \StringTok{"normal"}\NormalTok{, }
                    \DataTypeTok{method =} \StringTok{"imp"}\NormalTok{)}
 \end{Highlighting}
@@ -686,7 +731,7 @@ but I am specifying that we want to use 1000 permutations.
 \end{Highlighting}
 \end{Shaded}
 
-The \textbf{summary()} function will tell us our genome-wide LOD score
+The \texttt{summary()} function will tell us our genome-wide LOD score
 threshold for a given significance value (here 0.05).
 
 \begin{Shaded}
@@ -695,6 +740,12 @@ threshold for a given significance value (here 0.05).
 \NormalTok{lod}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## LOD thresholds (1000 permutations)
+##     lod
+## 5% 2.34
+\end{verbatim}
 
 And now we can also refine our QTL results by including the significance
 threshold. This will give us the LOD score and estimated p-values for
@@ -707,7 +758,14 @@ found a QTL for our trait of interest.
 \end{Highlighting}
 \end{Shaded}
 
-Now that we have our QTL, we can plot them with the \textbf{plot()}
+\begin{verbatim}
+##           chr   pos  lod  pval
+## c1.loc97    1 100.3 3.60 0.005
+## D4Mit164    4  41.6 8.08 0.000
+## c15.loc32  15  37.5 2.35 0.050
+\end{verbatim}
+
+Now that we have our QTL, we can plot them with the \texttt{plot()}
 function. Here, I am plotting the results from both, the EM algorithm
 and the multiple imputation method. As expected, they do not differ
 much. The horizontal dotted line shows the genome-wide LOD threshold and
@@ -723,6 +781,15 @@ our two significant QTL pop up nicely on chromosomes 1 and 4.
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{_main_files/figure-latex/qtl-plot-out-1} 
+
+}
+
+\caption{QTL plot showing LOD scores and QTL positions with EM algorithm and the multiple imputation. The dotted line indicates the genome-wide LOD score threshold for a p < 0.05. Every peak above this threshold is considered a QTL.}\label{fig:qtl-plot-out}
+\end{figure}
+
 \paragraph{QTL interaction mapping}\label{qtl-interaction-mapping}
 
 \paragraph{Covariates in QTL models}\label{covariates-in-qtl-models}
@@ -735,6 +802,10 @@ package)}{QTL Analysis using Bayesian Interval Mapping (qtlbim package)}}\label{
 interactions}\label{gene-x-environment-interactions}
 
 \section{Variance and heritability}\label{variance-and-heritability}
+
+\section*{Exercises: Quantitative
+Genetics}\label{exercises-quantitative-genetics}
+
 
 \chapter{Genetics of complex
 diseases}\label{genetics-of-complex-diseases}
@@ -760,7 +831,7 @@ Let me explain them in this appendix.
 
 To know more about \textbf{bookdown}, see \url{https://bookdown.org}.
 
-\bibliography{packages,book}
+\bibliography{packages.bib,book.bib}
 
 %\usepackage{makeidx}\makeindex
 \printindex

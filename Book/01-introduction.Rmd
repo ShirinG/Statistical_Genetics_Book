@@ -2,3 +2,23 @@
 
 # Introduction to Statistical Genetics
 
+Statistical Genetics describes the scientific field that uses statistics to gain insight from genetic data.
+
+This book will start with evolutionary and population genetics, the subfield that studies evolutionary processes like speciation and adaptation or population-level phenomena like migration, drift, etc.
+
+Closely related to population genetics is quantitative genetics. Here, the focus lies on analysing quantitative traits and their underlying genetic regulation.
+
+> Genetic epidemiology is the study of the role of genetic factors in determining health and disease in families and in populations, and the interplay of such genetic factors with environmental factors. Genetic epidemiology seeks to derive a statistical and quantitative analysis of how genetics work in large groups.[1]
+
+> Statistical genetics is concerned with the analysis of genetic data. Due to rapid progress in laboratory techniques, there is an ever-increasing slew of new data: the 3rd generation of genetic markers (SNPs), the DNA sequence of numerous organisms, gene-statement information (transcriptional profiling), and an increasing amount of knowledge about gene function. Statisticians play an important role in the analysis and the design of genetic studies.
+Statistical genetics overlaps with fields such as biomathematics, bioinformatics, biology, epidemiology, genetics, etc. People in the department have worked and are working on methods in linkage analysis, allelic association tests, gene statement array data analysis, sequence analysis, comparative genomics, phylogenetic tree reconstruction, etc.
+
+> Statistical geneticists at HSPH develop statistical methods for understanding the genetic basis of human diseases and traits.  These methods involve large-scale data sets from candidate-gene, genome-wide and resequencing studies, using both unrelated and related individuals.  HSPH statistical geneticists collaborate with other investigators at HSPH and around the world on studies of cancer, heart disease, diabetes, respiratory disease, psychiatric disease, and health-related behaviors (e.g. smoking, diet).  They have close ties to the Program in Quantitative Genomics and Computational Biology and Bioinformatics group at HSPH.  Training encompasses basic statistics; Mendelian and population genetics; design and analysis of genetic association studies; gene expression and epigenetic markers; and gene-environment interaction.
+
+> The human genome project is changing the practice of medicine and public health, and genetics is playing an ever more central role in all the biomedical sciences. This expanding role includes the mapping and sequencing of the human genome and the genomes of other organisms, the identification of all human genes and the cataloging of all common human genetic variants, the development of methods to assay the expression of many genes simultaneously, the investigation of the molecular evolution of human genes, and the translation of the resulting knowledge to address questions of human health and disease. These developments present remarkable opportunities for the prevention and cure of human disease, but require investigators working at the interface between human genetics and the mathematical sciences
+
+
+https://cran.r-project.org/web/views/Genetics.html
+https://www.mcgill.ca/statisticalgenetics/software
+
+

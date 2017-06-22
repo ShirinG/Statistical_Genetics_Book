@@ -1,0 +1,494 @@
+---
+title: "population genetics packages"
+output: pdf_document
+---
+
+genetics: Population Genetics
+
+Classes and methods for handling genetic data. Includes classes to represent genotypes and haplotypes at single markers up to multiple markers on multiple chromosomes. Function include allele frequencies, flagging homo/heterozygotes, flagging carriers of certain alleles, estimating and testing for Hardy-Weinberg disequilibrium, estimating and testing for linkage disequilibrium
+
+https://cran.r-project.org/web/packages/gap/vignettes/gap.pdf
+
+```{r}
+lapply(c("genetics", "gap", "kinship2", "memgene", "adegenet", "poppr"), function(pkg) {
+  if (system.file(package = pkg) == '') install.packages(pkg)
+})
+```
+
+```{r message=FALSE}
+library(gap)
+library(genetics)
+library(kinship2)
+```
+
+## Kinship calculation
+
+```{r fig.width=10, fig.height=10}
+data(lukas, package = "gap") # A multi-generational pedigree containing individual, father, mother IDs and sex.
+
+ped <- with(lukas, pedigree(id, father, mother, sex))
+plot(ped)
+```
+
+```{r}
+gk1 <- kin.morgan(lukas)
+kk1 <- kinship(lukas[,1], lukas[,2], lukas[,3])
+d <- gk1$kin.matrix - kk1
+sum(abs(d))
+```
+
+---
+
+MEMGENE is a tool for spatial pattern detection in genetic distance data. It uses a multivariate
+regression approach and Moran’s Eigenvector Maps (MEM) to identify the spatial
+component of genetic variation. MEMGENE variables are the output, and can be used in
+visualizations or in subsequent inference about ecological or movement processes that underly
+genetic pattern. Please see the publication associated with the MEMGENE package (Galpern
+et al., 2014) for more information.
+Three tutorials are presented here. The first shows a MEMGENE analysis of a simulated
+data set produced for the publication associated with the MEMGENE package (Galpern et
+al., 2014) and a second demonstrates an analysis for field-collected caribou data contained in
+the same paper. The third tutorial demonstrates how to use MEMGENE in the context of
+landscape genetic analysis also using simulated data.
+
+A full description of how the radial spatial genetic data were simulated is available in the publication
+associated with this package (Galpern et al., 2014). Briefly, we simulated the moving
+and mating of 1000 individuals over 300 non-overlapping generations. Movement across the
+arms of the radial structure (see figure below) was less likely than within the three regions of
+the landscape, due to landscape resistance to movement imposed on the simulated individuals.
+This makes the radial structure into a semi-permeable barrier, reducing dispersal and
+therefore gene flow. Given a sufficient number of generations for genetic drift under reduced
+gene flow, we expect a spatial genetic pattern that reflects the landscape resistance pattern
+in this Figure (below).
+The data set provided with the package (radial.csv installed in the extdata folder) represents
+a spatially stratified sampling of 200 individuals at generation 300 of this simulation.
+It includes 200 rows, one for each individual, two columns giving coordinates at which the
+individual was ”sampled”, and 30 paired columns giving the alleles at 15 codominant loci.
+
+```{r}
+library(memgene)
+```
+
+MEMGENE requires a genetic distance matrix giving the pairwise genetic distances
+among individual genotypes. Any genetic distance metric can be used. In principle the
+method will also work with a population genetic distance matrix (e.g. pairwise Fst).
+In this first step we find the genetic distance matrix using the proportion of shared
+alleles among individuals (Bowcock et al., 1994) as the metric. We use a convenience
+function included in the package to produce this that wraps functions in the adegenet
+package (Jombart, 2008).
+
+```{r}
+## Load the radial genetic data
+radialData <- read.csv(system.file("extdata/radial.csv", package = "memgene"))
+## Create objects for positional information and genotypes
+radialXY <- radialData[ ,1:2]
+radialGen <- radialData[, 3:ncol(radialData)]
+## Produce a proportion of shared alleles genetic distance matrix
+## using the convenience wrapper function provided with the package
+radialDM <- codomToPropShared(radialGen)
+```
+
+In this second step we extract the MEMGENE variables, using the typical interface to
+the MEMGENE package (the mgQuick function). The analysis framework is discussed
+in detail in the publication associated with this package.
+The mgQuick function does the following: (1) Finds the MEM eigenvectors given the
+sampling locations of the individuals (mgMEM function); (2) Uses these eigenvectors to
+identify significant spatial genetic patterns (mgForward and mgRDA functions); (3) Returns
+MEMGENE variables that describe these significant patterns on a reduced set of
+axes (mgRDA function). For additional detail on these functions, and for more control
+over the MEMGENE analysis see the R help files.
+
+```{r eval=FALSE}
+## Run the MEMGENE analysis
+## May take several minutes
+if (!exists("radialAnalysis"))
+radialAnalysis <- mgQuick(radialDM, radialXY)
+```
+
+```{r echo=FALSE, eval=FALSE}
+save(radialAnalysis, file = "radialAnalysis.RData")
+```
+
+```{r echo=FALSE}
+load("radialAnalysis.RData")
+```
+
+The MEMGENE variables represent orthonormal patterns of significant spatial genetic
+variation, and are ordered in terms of the amount of variation they explain from most
+to least. Typically, much of the variation is summarized in the first two variables, so it
+can often be convenient to visualize these two initially.
+
+However, it is often more interesting to visualize the MEMGENE variables superimposed
+over some map or other. In the figure below we superimpose the first MEMGENE
+variable (MEMGENE1) over the resistance surface used to create the spatial genetic
+data. This can be done using the add.plot=TRUE parameter.
+
+```{r eval=FALSE}
+## Visualize the first two MEMGENE variables
+## by providing only the first two columns of the memgene matrix
+mgMap(radialXY, radialAnalysis$memgene[, 1:2])
+```
+
+```{r warning=FALSE, fig.width=10, fig.height=10}
+library(raster)
+radialRas <- raster(system.file("extdata/radial.asc", package = "memgene"))
+plot(radialRas, legend = FALSE)
+mgMap(radialXY, radialAnalysis$memgene[, 1], add.plot = TRUE, legend = TRUE)
+```
+
+Above: The scores of individuals on the MEMGENE1 axis superimposed on the resistance
+surface used to create the spatial genetic data. Circles of similar size and colour
+represent individuals with similar scores on this axis. Note how the pattern of spatial
+genetic variation in MEMGENE1 (spatial genetic neighbourhoods) reflects the structure
+of the landscape used to create it.
+Although visualization may often be an end in itself, the MEMGENE variables can also
+be used singly or in combination to test hypotheses about the creation of the spatial
+genetic neighbourhoods they describe.
+
+
+This tutorial demonstrates the use of MEMGENE to identify spatial genetic patterns in a
+data set for boreal woodland caribou, a North American ungulate.
+3.1 The data set
+A full description of how these spatial genetic data were collected and genotyped can be found
+in the publication associated with this package (Galpern et al., 2014). Briefly, these are genotypes
+for 87 caribou sampled on both sides of the Mackenzie River (Northwest Territories,
+Canada). The Mackenzie is a major North American river that varies between 1 and 4.5 km
+through the study area. Caribou have occasionally been reported crossing the river.
+Boreal woodland caribou are a threatened species under Canada’s Species at Risk Act. For
+this reason the caribou data included with the package have obfuscated sampling locations
+produced by reprojecting them in a way that maintains the Euclidean distance matrix among
+the points, but is not easily assignable to a precise location on the Earth’s surface.
+
+Step 1 Produce a genetic distance matrix
+
+```{r}
+## Load the caribou genetic data
+caribouData <- read.csv(system.file("extdata/caribou.csv", package = "memgene"))
+## Create objects for positional information and genotypes
+caribouXY <- caribouData[ ,1:2]
+caribouGen <- caribouData[, 3:ncol(caribouData)]
+## Produce a proportion of shared alleles genetic distance matrix
+## using the convenience wrapper function provided with the package
+caribouDM <- codomToPropShared(caribouGen)
+```
+
+Step 2 Extract MEMGENE variables
+
+```{r eval=FALSE}
+## Run the MEMGENE analysis
+## May take several minutes
+if (!exists("caribouAnalysis"))
+caribouAnalysis <- mgQuick(caribouDM, caribouXY)
+```
+
+```{r echo=FALSE, eval=FALSE}
+save(caribouAnalysis, file = "caribouAnalysis.RData")
+```
+
+```{r echo=FALSE}
+load("caribouAnalysis.RData")
+```
+
+Step 3 Visualize MEMGENE variables
+The results of the visualization of MEMGENE1 is shown in Figure below. This figure
+also appears in the publication associated with this package, sumperimposed over a map
+of the region.
+
+```{r}
+plot(caribouXY, type="n", xlab="", ylab="", axes=FALSE)
+mgMap(caribouXY, caribouAnalysis$memgene[, 1], add.plot=TRUE, legend=TRUE)
+box()
+```
+
+Above: The scores of individual caribou on the MEMGENE1 axis. The Mackenzie
+River separates the white and black circles diagonally through the lower half of the map
+(not shown). For the full presentation of these results see the publication associated
+with this package.
+Step 4 Additional interpretation
+Finding the adjusted R-squared (i.e. the genetic variation explained by spatial pattern)
+is just a matter of referencing the list element in the caribouAnalysis object as follows:
+
+```{r}
+caribouAnalysis$RsqAdj
+```
+
+Note that this low value should be interpreted not as an inadequacy of the regression to
+explain variation, but rather that there is only a small proportion of all genetic variation
+that can be attributed to spatial patterns; or more specifically, to the N-1 (where N is
+the number of sampling locations) MEM spatial eigenfunctions that were extracted. It
+is important to note, however, that adjustments to how the MEM eigenfunctions are
+extracted have the potential to subtly change which spatial patterns are captured, as
+well as increase R squared. Further work is required to explore the effects of these
+modelling decisions.
+Then determining the proportion of the this variation that is explained by each of the
+MEMGENE variables is also straightforward:
+
+```{r}
+## Find the proportional variation explained by each MEMGENE variable
+caribouMEMGENEProp <- caribouAnalysis$sdev/sum(caribouAnalysis$sdev)
+## Neatly print proportions for the first three MEMGENE variables
+format(signif(caribouMEMGENEProp, 3)[1:3], scientific=FALSE)
+```
+
+It is clear that there are only two distinctive patterns in these data, and the dominant
+pattern is that created by the Mackenzie River (i.e. MEMGENE1)
+
+---
+
+Poppr is an R package useful in analysis of population genetic data. Poppr introduces core functions for analysis of populations with mixed modes of reproduction typically observed for microbial populations including a blend of asexual and sexual reproduction. Poppr allows for convenient hierarchical analysis of populations with multiple subpopulation levels, clone censoring, distance analysis (including Bruvo's distance) including dendrograms with bootstrap support, linkage disequilibrium and more. Please check back as we continue writing this primer. Currently, poppr is available on CRAN with development versions on github. A PDF manual is also available for download providing documentation on how to use poppr. Please feel free to contact the authors for feedback and bugs. We intend to continue to improve and maintain poppr.
+
+We have two papers describing poppr in PeerJ and Frontiers.
+
+http://grunwaldlab.cgrb.oregonstate.edu/poppr-r-package-population-genetics
+
+```{r}
+library(poppr)
+```
+
+Welcome! This primer provides a concise introduction to conducting applied analyses of population genetic data in R, with a special emphasis on non-model populations including clonal or partially clonal organisms. It provides a valuable resource for tackling the nitty-gritty analysis of populations that do not necessarily conform to textbook genetics and might or might not be in Hardy-Weinberg equilibrium. 
+
+This primer provides a concise introduction to conducting applied analyses of population genetic data in R, with a special emphasis on non-model populations including clonal or partially clonal organisms. It is not meant to be a textbook on population genetics. Quite to the contrary, we refer the reader to several textbooks on population genetics (Templeton, 2006; Hartl & Clark, 2007; Nielsen & Slatkin, 2013). Likewise, this book will not replace books on theory and statistics of population genetics (Weir, 1996). The reader is thus expected to have a basic understanding of population genetic theory and applications. Finally, this primer is focused on traditional population genetics based on allele frequencies, rather than more sophisticated coalescent approaches (Hein, Schierup & Wiuf, 2004; Wakeley, 2009; Nielsen & Slatkin, 2013), although some of the material covered here will apply. In a nutshell, this primer provides a valuable resource for tackling the nitty-gritty analysis of populations that do not necessarily conform to textbook genetics and might or might not be in Hardy-Weinberg equilibrium and panmixia.
+
+This primer is geared towards biologists interested in analyzing their populations. This primer does not require extensive knowledge of programming in R, but the user is expected to install R and all packages required for this primer.
+
+Population genetics
+Traditional population genetics is based on analysis of observed allele frequencies compared to frequencies expected, assuming a population genetic model. For example, under a Wright-Fisher model you might expect to see populations of diploid individuals that reproduce sexually, with non-overlapping generations. This model ignores effects such as mutation, recombination, selection or changes in population size or structure. More complex models can incorporate different aspects of effects observed in real populations. However, most of these models assume that populations reproduce sexually.
+
+Here, we briefly review some terminology but assume that the reader has a basic understanding of theory and applications of population genetics.
+
+A locus is a position in the genome where we can observe one or several alleles in different individuals. Loci used in population genetics are assumed to be selectively neutral and can be an anonymous or non-coding region such as a microsatellite locus (SSR), a single nucleotide polymorphism (SNP) or the presence/absence of a band on a gel. A genotype is the combination of alleles carried by a given individual at a particular set of loci. Individuals carrying the same set of alleles are considered to have the same multilocus genotype MLGMLG.
+
+Basic metrics of interest in populations are polymorphisms, allele frequencies and genotype frequencies. Polymorphism can be estimated in several ways, such as the total number of loci observed that have more than one allele. The frequency of an allele is calculated as the number of allele copies observed in a population divided by the total number of individuals, times the ploidy (NN in haploids or 2N2N in diploids) in the population. For diploids we would observe frequency fAfA and fafa for alleles AA and aa, respectively:
+
+fA=NA2NfA=NA2N and fa=Na2Nfa=Na2N
+
+where NANA are the numbers of allele AA segregating in the population genotyped.
+
+By definition, at a biallelic locus frequencies sum to 1:
+
+fA+fa=1fA+fa=1.
+
+Genotype frequencies are the relative frequencies of each MLGMLG observed in a population. Thus, for diploids at a biallelic locus we can observe three genotypes: AAAA, AaAa, and aaaa and their respective frequencies:
+
+fAA=NAA2NfAA=NAA2N and fAa=NAa2NfAa=NAa2N and faa=Naa2Nfaa=Naa2N
+
+These frequencies again add up to 1. In diploid organisms we can also calculate the frequency of homozygotes (AAAA or aaaa) or heterozygotes (AaAa) as the proportion of individuals falling into each class. The proportion of individuals that are heterozygous is given by fAafAa while the homozygous proportion is given by 1−fAa=fAA+faa1−fAa=fAA+faa.
+
+An important aspect of population structure is the heterozygosity observed within subdivided populations HSHS and across total populations HTHT. If we assume presence of two populations in Hardy-Weinberg equilibrium then frequencies of Allele AA in populations 1 and 2 pooled over both populations would be:
+
+fA=2N1fA1+2N2fA22N1+2N2fA=2N1fA1+2N2fA22N1+2N2
+
+where each allele frequency is multiplied by population size N1N1 and N2N2 and divided by total number of alleles 2N1+2N22N1+2N2. Remember, that in a diploid population there are 2 alleles per locus per individual and hence every frequency is multiplied by 2.
+
+Genetic differentiation of two populations (e.g. subdivision of populations) occurs if we observe differences in polymorphism, allele frequencies, genotype frequencies, and heterozygosity. Wright’s FstFst is a commonly used measure of differences in heterozygosity observed in the overall population relative to the subdivided populations and is defined as the differences between HTHT and HSHS relative to HTHT:
+
+FST=HT−HSHTFST=HT−HSHT
+
+If allele frequencies are identical in both subpopulations then HT=HSHT=HS. If, on the other hand, allele frequencies vary between subdivided populations, then HT>HSHT>HS and populations are considered to be genetically differentiated.
+
+Besides calculation of FstFst other approaches can be used to assess population structure including clustering. These approaches will be explored in subsequent chapters.
+
+The special case of clonal organisms
+Plants and microorganisms such as fungi, oomycetes, and bacteria often reproduce clonally or follow a mixed reproductive system, including various degrees of clonality and sexuality (Halkett, Simon & Balloux, 2005). Traditional population genetic theory does not apply and these populations violate basic assumptions in the corresponding analyses. Thus, a different set of tools are required for analyses of clonal populations (Anderson & Kohn, 1995; Milgroom, 1996; Balloux, Lehmann & Meeûs, 2003; Halkett et al., 2005; De Meeûs, Lehmann & Balloux, 2006; Grünwald & Goss, 2011). Typically these focus on metrics that are model free and do not assume random mating or random sampling of alleles. Model free metrics suitable for analyzing these populations include measures of genotypic diversity or evenness, as well as cluster analysis based on genetic distance. Additional useful measures include indices of linkage disequiblibrium among markers that are used to infer if populations are reproducing sexually or clonally. We will explore these analyses bit by bit throughout this primer. The poppr R package was specifically developed to facilitate analyses of clonal populations (Kamvar, Tabima & Grünwald, 2014; Kamvar, Brooks & Grünwald, 2015).
+
+Marker systems, ploidy and other kinds of data
+Population genetic data come in many shapes and forms and a good analysis needs to be tailored to the marker system, ploidy used and corresponding genetic models assumed (Grünwald & Goss, 2011). Organisms can be haploid, diploid, with or without known phase, or polyploid. In the case of diploid species, marker systems can be dominant (AFLP, RFLP or RAPD data) or co- dominant (SSR, SNPs, allozymes) (Grünwald et al., 2003). A locus can have two alleles (0/1 for AFLP; C/T for SNPs) or many alleles per locus (A/B/C…N for SSRs or allozymes). In each case the data has to be coded and analyzed differently. Mutation rates can also differ for different markers systems (SSR >> mitochondrial SNPs > nuclear SNPs) (Grünwald & Goss, 2011). All these aspects of a particular data set need to be considered in the data analyses.
+
+Applications of population genetic analyses
+Population genetic analyses are tremendously valuable for answering questions ranging from applied to basic evolutionary questions (Grünwald & Goss, 2011). For example, a typical concern when finding a new, invasive organism is whether it is introduced to the area or emerged from a resident population. Other questions of interest might include:
+
+Where is the center of origin?
+Does this organism reproduce sexually?
+Has the population gone through a genetic bottleneck?
+Are populations structured by region, geography, micro-environment?
+What are source and sink populations and what are the rates of migration?
+This primer will provide some of the basic tools needed to answer many of these questions for populations that are clonal or partially clonal. Note, however, that more powerful, complementary coalescent methods will not be covered here. We hope you enjoy following along.
+
+References
+Anderson JB., Kohn LM. 1995. Clonality in soilborne, plant-pathogenic fungi. Annual Review of Phytopathology 33:369–391. Available at: http://www.annualreviews.org/doi/abs/10.1146/annurev.py.33.090195.002101
+
+Balloux F., Lehmann L., Meeûs T de. 2003. The population genetics of clonal and partially clonal diploids. Genetics 164:1635–1644. Available at: http://www.genetics.org/content/164/4/1635.full
+
+De Meeûs T., Lehmann L., Balloux F. 2006. Molecular epidemiology of clonal diploids: A quick overview and a short diy (do it yourself) notice. Infection, Genetics and Evolution 6:163–170. Available at: http://www.ncbi.nlm.nih.gov/pubmed/16290062
+
+Grünwald NJ., Goodwin SB., Milgroom MG., Fry WE. 2003. Analysis of genotypic diversity data for populations of microorganisms. Phytopathology 93:738–746. Available at: http://apsjournals.apsnet.org/doi/abs/10.1094/PHYTO.2003.93.6.738
+
+Grünwald NJ., Goss EM. 2011. Evolution and population genetics of exotic and re-emerging pathogens: Novel tools and approaches. Annual Review of Phytopathology 49:249–267. Available at: http://www.annualreviews.org/doi/abs/10.1146/annurev-phyto-072910-095246?journalCode=phyto
+
+Halkett F., Simon J-C., Balloux F. 2005. Tackling the population genetics of clonal and partially clonal organisms. Trends in Ecology & Evolution 20:194–201. Available at: http://www.ncbi.nlm.nih.gov/pubmed/16701368
+
+Hartl D., Clark A. 2007. Principles of population genetics. Sinauer Associates, Incorporated. Available at: http://books.google.com/books?id=SB1vQgAACAAJ
+
+Hein J., Schierup M., Wiuf C. 2004. Gene genealogies, variation and evolution: A primer in coalescent theory. Oxford University Press, USA. Available at: http://books.google.com/books?id=QBC\_SFOamksC
+
+Kamvar ZN., Brooks JC., Grünwald NJ. 2015. Novel R tools for analysis of genome-wide population genetic data with emphasis on clonality. Name: Frontiers in Genetics 6:208. Available at: http://dx.doi.org/10.3389/fgene.2015.00208
+
+Kamvar ZN., Tabima JF., Grünwald NJ. 2014. PopprPoppr: An R package for genetic analysis of populations with clonal, partially clonal, and/or sexual reproduction. PeerJ 2:e281. Available at: http://dx.doi.org/10.7717/peerj.281
+
+Milgroom MG. 1996. Recombination and the multilocus structure of fungal populations. Annual review of phytopathology 34:457–477. Available at: http://www.annualreviews.org/doi/abs/10.1146/annurev.phyto.34.1.457
+
+Nielsen R., Slatkin M. 2013. An introduction to population genetics: Theory and applications. Sinauer Associates, Incorporated. Available at: http://books.google.com/books?id=Iy08kgEACAAJ
+
+Templeton A. 2006. Population genetics and microevolutionary theory. Wiley. Available at: http://books.google.com/books?id=tJVreQjInt0C
+
+Wakeley J. 2009. Coalescent theory: An introduction. Roberts & Company Publishers. Available at: http://books.google.com/books?id=x30RAgAACAAJ
+
+Weir B. 1996. Genetic data analysis 2. Sinauer Associates. Available at: http://books.google.com/books?id=e9QPAQAAMAAJ
+
+http://grunwaldlab.github.io/Population_Genetics_in_R/Introduction.html
+
+This section will briefly go over the basics of data import into poppr. For this section, we will focus on the GenAlEx format. Other formats are supported and details are given in the R help page for the adegenet function import2genind. We will show examples of haploid, diploid, and polyploid data sets and show you how you can format your data if it’s grouped into multiple stratifications.
+
+```{r}
+monpop <- read.genalex("../Book/datasets/monpop.csv")
+monpop
+```
+
+There are other options for genalex formatted data, such as xy coordinates. We won’t cover the other options, but type help("read.genalex") in your R console for details.
+Other data formats
+Given dependence of poppr on adegenet, users can import data from the following formats
+
+FSTAT (file.dat)
+GENETIX (file.gtx)
+GENEPOP (file.gen)
+STRUCTURE (file.str)
+The adegenet function import2genind will import all of these formats. If you have sequence data, you can use the read.FASTA function from the ape package. If your data is in any other format, type help("df2genind") for guidance.
+
+GenAlEx data format
+GenAlEx is a very popular add-on for Microsoft Excel. It is relatively easy to use because of its familiar, menu-driven interface. It also gives the user the option to include information on population groupings, regional groupings, and xy coordinates. The flexibility of this format made it a clear choice for import into poppr.
+
+The data format is standard in that individuals are defined in the rows and loci are defined in the columns. The first two rows are reserved for metadata and the first two columns are reserved for the individual names and population names, respectively. The examples we will be using include haploid, diploid and polyploid data.
+
+Basic Format
+Below is what the monpop (haploid) data looks like. Highlighted in red is how missing data should be coded for SSR markers. Highlighted in blue are the parts of the metadata rows used by poppr. These three numbers represent:
+
+A	B	C
+loci	samples	populations
+
+The columns of the metadata beyond those three rows define the number of individuals contained within each population. Since this data is redundant with the second column, it is not necessary. Notice, also, that the second column, reserved for the population assignments, has a pattern of underscores in the populations. This will be important at the end of this section. Below is a modified version of the input format that should make it easier to format.
+
+Highlighted in blue is the cell that defines the number of columns highlighted in red. If we set this number to 1, then we do not have to enter in any information in those columns. Try it for yourself.
+
+Diploids
+Diploid data is only different in the fact that you will have two alleles per locus. This is coded such that each allele is in a separate column. Below is an example of the nancycats data set (from the adegenet package), exported like above. Highlighted in blue and red are the first and second loci, respectively.
+
+Polyploids
+GenAlEx does not handle polyploids, but since poppr can do it, we have set up a scheme to allow import of polyploids via this format. The limitation is that all of your loci have to have the same observed ploidy. Below is the example of Phytophthora infestans in the data set Pinf where some genotypes had observed tetraploid loci (Goss et al., 2014).
+
+Highlighted in blue is the first locus and highlighted in red are two samples at that locus, an observed diploid and observed triploid. Note the extra zeroes needed to make the genotype tetraploid.
+
+Population strata
+A hierarchical sampling approach is necessary to infer structure of populations in space or time. Poppr facilitates definition of stratified data by concatenating the different stratifications into a single column by a common separator (“_” by default). Here’s an example of the three stratifications of the monpop data set introduced above:
+
+Tree	Year	Symptom
+7	9	BB
+7	9	BB
+7	9	BB
+7	9	BB
+7	9	BB
+7	9	BB
+resulting in definition for use in poppr as:
+
+Tree_Year_Symptom
+7_9_BB
+7_9_BB
+7_9_BB
+7_9_BB
+7_9_BB
+7_9_BB
+If you do not want to concatenate your population factors into one row, save them as a separate csv file and use the functions read.table and strata after you’ve imported your genetic data to achieve the same result.
+The data imported this way can be accessed with the function splitStrata:
+
+```{r}
+splitStrata(monpop) <- ~Tree/Year/Symptom
+monpop # After (Three distinct levels)
+```
+
+This chapter introduces basic use of and navigation in poppr as well as good practices when starting an analysis. We take a glance at the genotypic diversity observed in populations and allelic frequencies observed in your loci by population. Both of these are good first steps to eliminate data entry errors, check for missing/rare data, and make sure all loci conform to expectations given your analyses.
+
+For these examples, we will be using the data set Pinf that is already built into poppr containing 86 individuals of the polyploid data for Phytophthora infestans genotyped over 11 microsatellite loci (Goss et al., 2014)
+
+The genotype accumulation curve
+A genotype accumulation curve is a tool that allows you to assess how much power you have to discriminate between unique individuals given a random sample of nn loci. This analysis is particularly important for clonal organisms to confirm that a plateau has been reached in the number of loci necessary to discriminate individuals. Below, we will analyze the Pinf data set.
+
+```{r}
+data("Pinf") # Load the data
+Pinf         # We expect a maximum of 72 Multilocus Genotypes
+```
+
+```{r}
+gac <- genotype_curve(Pinf, sample = 1000, quiet = TRUE)
+```
+
+We specified sample = 1000 in our function call. This means that for each boxplot, nn loci were randomly sampled 1000 times in order to create the distribution. Since this data has been curated, we can see that we have reached the plateau with 11 loci. Try seeing what happens when you use a data set of sexual populations such as microbov or nancycats. Also, what happens when you use dominant AFLP data such as Aeut?
+
+Allele frequencies, missing data, and ploidy
+A good first step after loading data is to look for missing data, rare alleles and overall quality of your data:
+
+```{r}
+(pinflt <- locus_table(Pinf))
+```
+
+We see that we have anywhere from 2 to 25 microsatellite alleles per locus. Locus D13 has the highest Simpson diversity (0.884) and Pi04 has the most evenly distirbuted alleles (0.785). We also observe between 1-10% missing data in the ‘North America’ population:
+
+```{r}
+info_table(Pinf, type = "missing", plot = TRUE)
+```
+
+If your data consists of polyploid SSR markers, you would code the unobserved alleles as ‘0’. The Pinf data set is a perfect example of this. It is a subset of a slightly larger tetraploid data set. In this example, each row represents an isolate and each column represents a locus:
+
+```{r}
+tail(genind2df(Pinf, sep = "/"))
+```
+
+The genind2df() function transforms the data from genind object into a dataframe and adds ‘/’ as separators between alleles at each locus. Note how missing allelles are coded as ‘000’.
+
+To observe the different levels of ploidy in your data, use the function info_table with the argument type = "ploidy":
+
+Notice you can change the colors of the plot by setting a “low” color and a “high” color.
+
+```{r fig.width=5, fig.height=10}
+Pinf.ploidy <- info_table(Pinf, type = "ploidy", plot = TRUE, low = "black", high = "orange")
+```
+
+Note that ploidy varies between 2 and 3 among individuals and loci.
+
+You are now able to assess the quality of your data and examine allelic diversity in your populations.
+
+Calculating genotypic diversity
+Let us get a first impression of the diversity found in this data using the summary function, poppr:
+
+```{r}
+poppr(Pinf)
+```
+
+We can see statistics printed for each individual and the total population. The fields you see in the output include:
+
+Abbreviation	Statistic
+Pop	Population name.
+N	Number of individuals observed.
+MLG	Number of multilocus genotypes (MLG) observed.
+eMLG	The number of expected MLG at the smallest sample size ≥ 10 based on rarefaction
+SE	Standard error based on eMLG.
+H	Shannon-Wiener Index of MLG diversity (Shannon, 2001).
+G	Stoddart and Taylor’s Index of MLG diversity (Stoddart & Taylor, 1988).
+lambda	Simpson’s Index (Simpson, 1949).
+E.5	Evenness, E5E5 (Pielou, 1975; Ludwig & Reynolds, 1988; Grünwald et al., 2003).
+Hexp	Nei’s unbiased gene diversity (Nei, 1978).
+Ia	The index of association, IAIA (Brown, Feldman & Nevo, 1980; Smith et al., 1993).
+rbarD	The standardized index of association, r¯dr¯d (Agapow & Burt, 2001).
+What does all this mean? Both populations have a similar number of individuals (NN = 38 and 48) sampled. However, one population has 29 and the other 43 MLGMLG while both populations together have combined 86 MLGMLG. Genotypic diversity (either HH or GG) is higher in population 2 than population 1, while evenness is similar. Let’s ignore IAIA and r¯dr¯d for now, as these are measures of linkage disequilibrium that will be covered in Chapter 8.
+
+Next, let’s calculate MLGMLG for each population, e.g. “South America” and “North America” populations:
+
+```{r fig.width=10, fig.height=5}
+P.tab <- mlg.table(Pinf)
+```
+
+
+
+
+
+
+
+

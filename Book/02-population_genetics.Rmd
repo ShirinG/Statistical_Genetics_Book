@@ -1,0 +1,29 @@
+
+# Evolutionary and Population Genetics
+
+Evolutionary and population genetics study processes like adapation and speciation events from a genetic perspective. This means that they are interested in how genes and alleles are transmitted between parents and offspring (or in some cases even horizontally), how they change and adapt over time , how dominance, epistasis and epigenetics influence phenotypes and how this relate to population structure. 
+
+The basic concept of evolutionary biology is that in order for selection to lead to change in populations, there needs to be sufficient genetic and phenotypic variation in that population to select from. From a genetics perspective, this means that selection will favor certain alleles among the pool of genes in the population. Favorable alleles will therefore increase in frequency within the population over time, while disadvantageous alleles will eventually disappear. Depending on how stable the environment is, this change in allele frequencies can be subject to severe fluctuation.
+
+Additional aspects like migration, mutation, recombination, inbreeding, drift, etc. make modeling of evolutionary and population genetic processes non-trivial.
+
+https://en.wikipedia.org/wiki/Population_genetics
+
+
+
+
+
+## Evolution of genetic systems
+
+## Phylogenetics
+
+## Game Theory
+
+## Genetic Algorithms
+
+## Evolutionary Algorithms
+
+## Hardy-Weinberg
+
+## Linkage Disequilibrium
+

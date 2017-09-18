@@ -9,11 +9,11 @@ Additional aspects like migration, mutation, recombination, inbreeding, drift, e
 
 https://en.wikipedia.org/wiki/Population_genetics
 
+- Mendelian and population genetics;
 
 
 
-
-## Evolution of genetic systems
+## Evolution of Genetic Systems
 
 ## Phylogenetics
 

@@ -19,9 +19,10 @@
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage{microtype}
+\usepackage[]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
 \usepackage[unicode=true]{hyperref}
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{
@@ -44,38 +45,49 @@
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{248,248,248}
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0,0,0}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0,0,0}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{{#1}}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0,0,0}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0,0,0}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.43,0.43,0.43}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.61,0.61,0.61}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.33,0.33,0.33}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.14,0.14,0.14}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.27,0.27,0.27}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.06,0.06,0.06}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -95,6 +107,12 @@
 \let\oldsubparagraph\subparagraph
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
 \setmainfont[
   UprightFeatures={SmallCapsFont=AlegreyaSC-Regular}
 ]{Alegreya}
@@ -113,7 +131,7 @@
 
 \title{Statistical Genetics: Analyses with R}
 \author{Dr.~Shirin Glander}
-\date{2017-06-20}
+\date{2017-09-18}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -124,8 +142,11 @@
 \newtheorem{proposition}{Proposition}[chapter]
 \theoremstyle{definition}
 \newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
 \maketitle
@@ -179,7 +200,7 @@ been evolutionary biology and genetics. At the moment, I am mainly
 working on questions relating to immunology - specifically inflammation,
 immune tolerance and auto-inflammatory diseases.
 
-I'm a big fan of R and I write \href{https://shiring.github.io/}{a blog}
+I'm a big fan of R and I write \href{www.shirin-glander.de}{a blog}
 where I explore different data sets and techniques in R. I also teach
 ballroom and Latin dance courses.
 
@@ -201,20 +222,14 @@ M. Smith and the R Core Team}
 R has originally been developed for statistical analysis and is a
 powerful toolbox for a wide range of tasks pertaining to data handling,
 statistical modeling and visualisation. It consists of a core
-distribution that contains basic functions and additional optional
-packages for specific tasks.
+distribution that contains basic functions. You can use additional
+packages for specific analyses.
 
-R functions generally work with objects that have been assigned a value,
-e.g.~a character string
-(\texttt{object\ =\ c("this",\ "is",\ "a",\ "string")}), numeric vector
-(\texttt{object\ =\ c(1,\ 2,\ 5,\ 70)}), model fit
-(\texttt{object\ =\ lm(speed\ \textasciitilde{}\ dist,\ data\ =\ cars)}),
-etc. Objects can be evaluated and compared.
-
-This books assumes a basic knowledge about getting data into R, calling
-functions, etc. but it is beyond the scope of this book to provide an in
-depth introduction to R. Luckily, there are a large number of free
-online resources available, like
+This books assumes a basic knowledge about getting data into R,
+installing and loading packages, calling functions, etc. It is beyond
+the scope of this book to provide an in depth introduction to R.
+Luckily, there are a large number of free online resources available,
+like
 
 \begin{itemize}
 \tightlist
@@ -230,8 +245,8 @@ online resources available, like
   \href{https://onlinecourses.science.psu.edu/statprogram/r}{Penn State
   Statistics resources}
 \item
-  \href{http://data.princeton.edu/R/introducingR.pdf}{by Germán
-  Rodríguez from Princeton University}
+  \href{http://data.princeton.edu/R/introducingR.pdf}{`Introducin R' by
+  Germán Rodríguez from Princeton University}
 \item
   etc.
 \end{itemize}
@@ -276,25 +291,25 @@ session information is shown below:
 \end{Shaded}
 
 \begin{verbatim}
-## R version 3.4.0 (2017-04-21)
+## R version 3.4.1 (2017-06-30)
 ## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS Sierra 10.12.3
+## Running under: macOS Sierra 10.12.6
 ## 
 ## Matrix products: default
 ## BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
 ## LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
-## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## [1] de_DE.UTF-8/de_DE.UTF-8/de_DE.UTF-8/C/de_DE.UTF-8/de_DE.UTF-8
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] compiler_3.4.0  backports_1.1.0 bookdown_0.4    magrittr_1.5   
-##  [5] rprojroot_1.2   tools_3.4.0     htmltools_0.3.6 rstudioapi_0.6 
-##  [9] yaml_2.1.14     Rcpp_0.12.11    stringi_1.1.5   rmarkdown_1.5  
-## [13] knitr_1.16      stringr_1.2.0   digest_0.6.12   evaluate_0.10
+##  [1] compiler_3.4.1  backports_1.1.0 bookdown_0.5    magrittr_1.5   
+##  [5] rprojroot_1.2   tools_3.4.1     htmltools_0.3.6 rstudioapi_0.7 
+##  [9] yaml_2.1.14     Rcpp_0.12.12    stringi_1.1.5   rmarkdown_1.6  
+## [13] knitr_1.17      stringr_1.2.0   digest_0.6.12   evaluate_0.10.1
 \end{verbatim}
 
 \mainmatter
@@ -302,12 +317,43 @@ session information is shown below:
 \chapter{Introduction to Statistical
 Genetics}\label{introduction-to-statistical-genetics}
 
-Statistical Genetics describes the scientific field that uses statistics
-to gain insight from genetic data.
+Statistical genetics describes the scientific field that uses statistics
+to gain insight from genetic data. Genetic data can help understand the
+basis and regulation of traits and diseases in humans, animals, plants
+and simpler organisms.
 
-This book will start with evolutionary and population genetics, the
-subfield that studies evolutionary processes like speciation and
-adaptation or population-level phenomena like migration, drift, etc.
+Statistical genetics makes use of large-scale datasets, e.g.~from
+Genome-Wide Association Studies (GWAS) or from Next-Generation
+Sequencing approaches.
+
+\begin{itemize}
+\tightlist
+\item
+  3rd generation of genetic markers (SNPs)
+\end{itemize}
+
+\begin{quote}
+DNA sequence of numerous organisms, gene-statement information
+(transcriptional profiling), and an increasing amount of knowledge about
+gene function. Statisticians play an important role in the analysis and
+the design of genetic studies. Statistical genetics overlaps with fields
+such as biomathematics, bioinformatics, biology, epidemiology, genetics,
+etc. People in the department have worked and are working on methods in
+linkage analysis, allelic association tests, gene statement array data
+analysis, sequence analysis, comparative genomics, phylogenetic tree
+reconstruction, etc.
+\end{quote}
+
+Statistical inference of genetic regulation needs sufficiently large
+study populations, especially if we analyse unrelated individuals.
+Family cohort analyses can be done on much smaller sample sizes, because
+we can largely assume Mendelian inheritance.
+
+A solid understanding of inheritance mechanisms in populations is
+paramount to understanding statistical genetics. Therefore, this book
+will start with evolutionary and population genetics, the subfield that
+studies evolutionary processes like speciation and adaptation or
+population-level phenomena like migration, drift, etc.
 
 Closely related to population genetics is quantitative genetics. Here,
 the focus lies on analysing quantitative traits and their underlying
@@ -395,8 +441,14 @@ processes non-trivial.
 
 \url{https://en.wikipedia.org/wiki/Population_genetics}
 
-\section{Evolution of genetic
-systems}\label{evolution-of-genetic-systems}
+\begin{itemize}
+\tightlist
+\item
+  Mendelian and population genetics;
+\end{itemize}
+
+\section{Evolution of Genetic
+Systems}\label{evolution-of-genetic-systems}
 
 \section{Phylogenetics}\label{phylogenetics}
 
@@ -411,6 +463,15 @@ systems}\label{evolution-of-genetic-systems}
 \section{Linkage Disequilibrium}\label{linkage-disequilibrium}
 
 \chapter{Quantitative Genetics}\label{quantitative-genetics}
+
+\begin{itemize}
+\item
+  gene expression and epigenetic markers
+\item
+  gene-environment interaction
+\end{itemize}
+
+\url{http://nitro.biosci.arizona.edu/zbook/book.html}
 
 \section{QTL analysis}\label{qtl-analysis}
 
@@ -484,7 +545,7 @@ checks whether you already have the package, and if not installs it.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{pkg =}\StringTok{ "qtl"}
-\NormalTok{if (}\KeywordTok{system.file}\NormalTok{(}\DataTypeTok{package =} \NormalTok{pkg) ==}\StringTok{ ''}\NormalTok{) }\KeywordTok{install.packages}\NormalTok{(pkg)}
+\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{system.file}\NormalTok{(}\DataTypeTok{package =}\NormalTok{ pkg) }\OperatorTok{==}\StringTok{ ''}\NormalTok{) }\KeywordTok{install.packages}\NormalTok{(pkg)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -543,6 +604,27 @@ phenotypes, genotype information and proportion of missing data.
 ##        X chromosome:    BY:53.0  AY:47.0
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(hyper)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{_main_files/figure-latex/qtl-plot-hyper-1.pdf}
+\caption{\label{fig:qtl-plot-hyper}Plots providing an overview over missing
+genotypes, marker positions and the distribution of phenotypes or
+traits. Plots were generated with \texttt{qtl::plot()}. In the upper
+left plot markers are shown against individuals, with black areas
+showing missing information. As we can see here, there is quite a bit of
+missing data. The upper right plot shows the marker positions on the
+chromosomes. Here, we can easily see that chromosomes 1, 4, 11 and 17
+have clusters of more densely positioned markers. The lower plots show
+phenotype information, either as a histogram for continuous values or as
+a bar chart for categorical factors.}
+\end{figure}
+
 The \texttt{plot()} function produces plots that show missing genotypes,
 marker positions and the distribution of phenotypes or traits. Figure
 \ref{fig:qtl-plot-hyper} will give you a first idea about the quality of
@@ -551,21 +633,6 @@ your data.
 The \href{http://www.rqtl.org/tutorials/rqtltour.pdf}{package manual}
 includes a description of various additional plotting functions, which I
 won't cover here.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(hyper)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{_main_files/figure-latex/qtl-plot-hyper-1} 
-
-}
-
-\caption{Plots providing an overview over missing genotypes, marker positions and the distribution of phenotypes or traits. Plots were generated with `qtl::plot()`. In the upper left plot markers are shown against individuals, with black areas showing missing information. As we can see here, there is quite a bit of missing data. The upper right plot shows the marker positions on the chromosomes. Here, we can easily see that chromosomes 1, 4, 11 and 17 have clusters of more densely positioned markers. The lower plots show phenotype information, either as a histogram for continuous values or as a bar chart for categorical factors.}\label{fig:qtl-plot-hyper}
-\end{figure}
 
 \paragraph{Genetic map estimation}\label{genetic-map-estimation}
 
@@ -650,22 +717,25 @@ error LOD above a certain threshold (cutoff) with the
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}
-
-\caption{\label{tab:qtl-te}Markers with an error LOD bigger than 3 under an error probability of 0.0001 indicate potential genotyping errors.}
-\centering
-\begin{tabular}[t]{lrlr}
+\begin{longtable}[]{@{}lrlr@{}}
+\caption{\label{tab:qtl-te}Markers with an error LOD bigger than 3 under an
+error probability of 0.0001 indicate potential genotyping
+errors.}\tabularnewline
 \toprule
-chr & id & marker & errorlod\\
+chr & id & marker & errorlod\tabularnewline
 \midrule
-4 & 102 & D4Mit288 & 3.324582\\
-4 & 107 & D4Mit111 & 3.262205\\
-4 & 216 & D4Mit214 & 3.261092\\
-11 & 57 & D11Mit82 & 3.021105\\
-11 & 118 & D11Mit82 & 3.021105\\
+\endfirsthead
+\toprule
+chr & id & marker & errorlod\tabularnewline
+\midrule
+\endhead
+4 & 102 & D4Mit288 & 3.324582\tabularnewline
+4 & 107 & D4Mit111 & 3.262205\tabularnewline
+4 & 216 & D4Mit214 & 3.261092\tabularnewline
+11 & 57 & D11Mit82 & 3.021105\tabularnewline
+11 & 118 & D11Mit82 & 3.021105\tabularnewline
 \bottomrule
-\end{tabular}
-\end{table}
+\end{longtable}
 
 These potentially erroneous markers can then be removed or set to
 \texttt{NA}.
@@ -673,11 +743,11 @@ These potentially erroneous markers can then be removed or set to
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{hyper.clean <-}\StringTok{ }\NormalTok{hyper}
-\NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\KeywordTok{nrow}\NormalTok{(te)) \{}
-  \NormalTok{chr <-}\StringTok{ }\NormalTok{te$chr[i]}
-  \NormalTok{id <-}\StringTok{ }\NormalTok{te$id[i]}
-  \NormalTok{mar <-}\StringTok{ }\NormalTok{te$marker[i]}
-  \NormalTok{hyper.clean$geno[[chr]]$data[hyper$pheno$id ==}\StringTok{ }\NormalTok{id, mar] <-}\StringTok{ }\OtherTok{NA}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{nrow}\NormalTok{(te)) \{}
+\NormalTok{  chr <-}\StringTok{ }\NormalTok{te}\OperatorTok{$}\NormalTok{chr[i]}
+\NormalTok{  id <-}\StringTok{ }\NormalTok{te}\OperatorTok{$}\NormalTok{id[i]}
+\NormalTok{  mar <-}\StringTok{ }\NormalTok{te}\OperatorTok{$}\NormalTok{marker[i]}
+\NormalTok{  hyper.clean}\OperatorTok{$}\NormalTok{geno[[chr]]}\OperatorTok{$}\NormalTok{data[hyper}\OperatorTok{$}\NormalTok{pheno}\OperatorTok{$}\NormalTok{id }\OperatorTok{==}\StringTok{ }\NormalTok{id, mar] <-}\StringTok{ }\OtherTok{NA}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -725,7 +795,7 @@ calling:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{hyper.clean$pheno}
+\NormalTok{hyper.clean}\OperatorTok{$}\NormalTok{pheno}
 \end{Highlighting}
 \end{Shaded}
 
@@ -843,7 +913,7 @@ found a QTL for our trait of interest.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(out.imp, }\DataTypeTok{perms =} \NormalTok{operm.imp, }\DataTypeTok{alpha =} \FloatTok{0.05}\NormalTok{, }\DataTypeTok{pvalues =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(out.imp, }\DataTypeTok{perms =}\NormalTok{ operm.imp, }\DataTypeTok{alpha =} \FloatTok{0.05}\NormalTok{, }\DataTypeTok{pvalues =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -864,19 +934,19 @@ our two significant QTL pop up nicely on chromosomes 1 and 4.
 \begin{Highlighting}[]
 \KeywordTok{plot}\NormalTok{(out.em, }\DataTypeTok{col =} \StringTok{"blue"}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(out.imp, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{add =} \OtherTok{TRUE}\NormalTok{)}
-\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h =} \NormalTok{lod[}\DecValTok{1}\NormalTok{], }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h =}\NormalTok{ lod[}\DecValTok{1}\NormalTok{], }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{)}
 \KeywordTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"EM algorithm"}\NormalTok{,}\StringTok{"Mult. imputation"}\NormalTok{), }
        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\StringTok{"red"}\NormalTok{), }\DataTypeTok{lty =} \DecValTok{1}\NormalTok{, }\DataTypeTok{lwd =} \DecValTok{3}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
-
-{\centering \includegraphics[width=0.9\linewidth]{_main_files/figure-latex/qtl-plot-out-1} 
-
-}
-
-\caption{QTL plot showing LOD scores and QTL positions with EM algorithm and the multiple imputation. The dotted line indicates the genome-wide LOD score threshold for a p < 0.05. Every peak above this threshold is considered a QTL.}\label{fig:qtl-plot-out}
+\centering
+\includegraphics{_main_files/figure-latex/qtl-plot-out-1.pdf}
+\caption{\label{fig:qtl-plot-out}QTL plot showing LOD scores and QTL
+positions with EM algorithm and the multiple imputation. The dotted line
+indicates the genome-wide LOD score threshold for a p \textless{} 0.05.
+Every peak above this threshold is considered a QTL.}
 \end{figure}
 
 \paragraph{QTL interaction mapping}\label{qtl-interaction-mapping}
@@ -901,6 +971,12 @@ diseases}\label{genetics-of-complex-diseases}
 
 \section{Genome Wide Association Studies
 (GWAS)}\label{genome-wide-association-studies-gwas}
+
+\begin{itemize}
+\tightlist
+\item
+  design and analysis of genetic association studies
+\end{itemize}
 
 \section{Pedigree analysis}\label{pedigree-analysis}
 

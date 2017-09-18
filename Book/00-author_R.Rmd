@@ -2,7 +2,7 @@
 
 I am a bioinformatician at the University Hospital of Münster in Germany, where I'm responsible for Next Generation Sequencing analysis. I've earned my PhD from the University of Münster, where I worked on the link between flowering time and immune defense in plants using quantitative genetics and RNA-sequencing. My overarching interest has been evolutionary biology and genetics. At the moment, I am mainly working on questions relating to immunology - specifically inflammation, immune tolerance and auto-inflammatory diseases.
 
-I'm a big fan of R and I write [a blog](https://shiring.github.io/) where I explore different data sets and techniques in R. I also teach ballroom and Latin dance courses.
+I'm a big fan of R and I write [a blog](www.shirin-glander.de) where I explore different data sets and techniques in R. I also teach ballroom and Latin dance courses.
 
 You can find me and my package for gene expression analysis (exprAnalysis) on [Github](https://github.com/ShirinG).
 
@@ -12,17 +12,16 @@ You can find me and my package for gene expression analysis (exprAnalysis) on [G
 > "R is an integrated suite of software facilities for data manipulation, calculation and graphical
 display." [An Introduction to R - Notes on R: A Programming Environment for Data Analysis and Graphics version 3.4.0 (2017-04-21) by W. N. Venables, D. M. Smith and the R Core Team](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
 
-R has originally been developed for statistical analysis and is a powerful toolbox for a wide range of tasks pertaining to data handling, statistical modeling and visualisation. It consists of a core distribution that contains basic functions and additional optional packages for specific tasks.
+R has originally been developed for statistical analysis and is a powerful toolbox for a wide range of tasks pertaining to data handling, statistical modeling and visualisation. It consists of a core distribution that contains basic functions. You can use additional packages for specific analyses.
 
-R functions generally work with objects that have been assigned a value, e.g. a character string (`object = c("this", "is", "a", "string")`), numeric vector (`object = c(1, 2, 5, 70)`), model fit (`object = lm(speed ~ dist, data = cars)`), etc. Objects can be evaluated and compared.
-
-This books assumes a basic knowledge about getting data into R, calling functions, etc. but it is beyond the scope of this book to provide an in depth introduction to R. Luckily, there are a large number of free online resources available, like
+This books assumes a basic knowledge about getting data into R, installing and loading packages, calling functions, etc. It is beyond the scope of this book to provide an in depth introduction to R. Luckily, there are a large number of free online resources available, like
 
 - [An Introduction to R - Notes on R: A Programming Environment for Data Analysis and Graphics version 3.4.0 (2017-04-21) by W. N. Venables, D. M. Smith and the R Core Team](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
 - [Data Camp](https://www.datacamp.com/courses/free-introduction-to-r)
 - [Penn State Statistics resources](https://onlinecourses.science.psu.edu/statprogram/r)
-- [by Germán Rodríguez from Princeton University](http://data.princeton.edu/R/introducingR.pdf)
+- ['Introducin R' by Germán Rodríguez from Princeton University](http://data.princeton.edu/R/introducingR.pdf)
 - etc.
+
 
 ## Software information and conventions {-}
 

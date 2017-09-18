@@ -1,5 +1,12 @@
 # Quantitative Genetics
 
+- gene expression and epigenetic markers
+
+- gene-environment interaction
+
+http://nitro.biosci.arizona.edu/zbook/book.html
+
+
 ## QTL analysis
 
 Quantitative Trait Loci (QTL) are regions in the genome that are associated with variation in a quantitative trait. Quantitative traits are phentoypes that can be measured on a continuous scale, like height, weight, etc.
@@ -53,13 +60,13 @@ The `summary()` function shows you the main properties of the data, like number 
 summary(hyper)
 ```
 
+```{r qtl-plot-hyper, fig.cap="Plots providing an overview over missing genotypes, marker positions and the distribution of phenotypes or traits. Plots were generated with `qtl::plot()`. In the upper left plot markers are shown against individuals, with black areas showing missing information. As we can see here, there is quite a bit of missing data. The upper right plot shows the marker positions on the chromosomes. Here, we can easily see that chromosomes 1, 4, 11 and 17 have clusters of more densely positioned markers. The lower plots show phenotype information, either as a histogram for continuous values or as a bar chart for categorical factors.", fig.width=10, fig.height=10}
+plot(hyper)
+```
+
 The `plot()` function produces plots that show missing genotypes, marker positions and the distribution of phenotypes or traits. Figure \@ref(fig:qtl-plot-hyper) will give you a first idea about the quality of your data.
 
 The [package manual](http://www.rqtl.org/tutorials/rqtltour.pdf) includes a description of various additional plotting functions, which I won't cover here.
-
-```{r qtl-plot-hyper, fig.cap = "Plots providing an overview over missing genotypes, marker positions and the distribution of phenotypes or traits. Plots were generated with `qtl::plot()`. In the upper left plot markers are shown against individuals, with black areas showing missing information. As we can see here, there is quite a bit of missing data. The upper right plot shows the marker positions on the chromosomes. Here, we can easily see that chromosomes 1, 4, 11 and 17 have clusters of more densely positioned markers. The lower plots show phenotype information, either as a histogram for continuous values or as a bar chart for categorical factors.", fig.asp = 1, out.width = '90%', fig.align = 'center'}
-plot(hyper)
-```
 
 ##### Genetic map estimation
 
@@ -99,7 +106,8 @@ te <- top.errorlod(hyper, cutoff = 3)
 
 ```{r qtl-te, echo=FALSE}
 knitr::kable(
-  te, caption = 'Markers with an error LOD bigger than 3 under an error probability of 0.0001 indicate potential genotyping errors.',
+  te, format = "pandoc",
+  caption = 'Markers with an error LOD bigger than 3 under an error probability of 0.0001 indicate potential genotyping errors.',
   booktabs = TRUE
 )
 ```
@@ -202,7 +210,7 @@ summary(out.imp, perms = operm.imp, alpha = 0.05, pvalues = TRUE)
 
 Now that we have our QTL, we can plot them with the `plot()` function. Here, I am plotting the results from both, the EM algorithm and the multiple imputation method. As expected, they do not differ much. The horizontal dotted line shows the genome-wide LOD threshold and our two significant QTL pop up nicely on chromosomes 1 and 4.
 
-```{r qtl-plot-out, fig.cap = "QTL plot showing LOD scores and QTL positions with EM algorithm and the multiple imputation. The dotted line indicates the genome-wide LOD score threshold for a p < 0.05. Every peak above this threshold is considered a QTL.", fig.asp = 0.5, out.width = '90%', fig.align = 'center'}
+```{r qtl-plot-out, fig.cap = "QTL plot showing LOD scores and QTL positions with EM algorithm and the multiple imputation. The dotted line indicates the genome-wide LOD score threshold for a p < 0.05. Every peak above this threshold is considered a QTL."}
 plot(out.em, col = "blue")
 plot(out.imp, col = "red", add = TRUE)
 abline(h = lod[1], lty = 2)

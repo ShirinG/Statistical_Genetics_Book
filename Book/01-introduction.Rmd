@@ -2,11 +2,24 @@
 
 # Introduction to Statistical Genetics
 
-Statistical Genetics describes the scientific field that uses statistics to gain insight from genetic data.
+Statistical genetics describes the scientific field that uses statistics to gain insight from genetic data. Genetic data can help understand the basis and regulation of traits and diseases in humans, animals, plants and simpler organisms.
 
-This book will start with evolutionary and population genetics, the subfield that studies evolutionary processes like speciation and adaptation or population-level phenomena like migration, drift, etc.
+Statistical genetics makes use of large-scale datasets, e.g. from Genome-Wide Association Studies (GWAS) or from Next-Generation Sequencing approaches.
+
+- 3rd generation of genetic markers (SNPs)
+
+> DNA sequence of numerous organisms, gene-statement information (transcriptional profiling), and an increasing amount of knowledge about gene function. Statisticians play an important role in the analysis and the design of genetic studies.
+Statistical genetics overlaps with fields such as biomathematics, bioinformatics, biology, epidemiology, genetics, etc. People in the department have worked and are working on methods in linkage analysis, allelic association tests, gene statement array data analysis, sequence analysis, comparative genomics, phylogenetic tree reconstruction, etc.
+
+Statistical inference of genetic regulation needs sufficiently large study populations, especially if we analyse unrelated individuals. Family cohort analyses can be done on much smaller sample sizes, because we can largely assume Mendelian inheritance.
+
+A solid understanding of inheritance mechanisms in populations is paramount to understanding statistical genetics.
+Therefore, this book will start with evolutionary and population genetics, the subfield that studies evolutionary processes like speciation and adaptation or population-level phenomena like migration, drift, etc.
 
 Closely related to population genetics is quantitative genetics. Here, the focus lies on analysing quantitative traits and their underlying genetic regulation.
+
+
+
 
 > Genetic epidemiology is the study of the role of genetic factors in determining health and disease in families and in populations, and the interplay of such genetic factors with environmental factors. Genetic epidemiology seeks to derive a statistical and quantitative analysis of how genetics work in large groups.[1]
 

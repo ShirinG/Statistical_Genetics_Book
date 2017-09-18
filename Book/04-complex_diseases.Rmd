@@ -3,4 +3,6 @@
 
 ## Genome Wide Association Studies (GWAS)
 
+- design and analysis of genetic association studies
+
 ## Pedigree analysis

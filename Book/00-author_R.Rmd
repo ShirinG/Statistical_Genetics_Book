@@ -1,6 +1,6 @@
 # About the Author {-}
 
-I am a bioinformatician at the University Hospital of Münster in Germany, where I'm responsible for Next Generation Sequencing analysis. I've earned my PhD from the University of Münster, where I worked on the link between flowering time and immune defense in plants using quantitative genetics and RNA-sequencing. My overarching interest has been evolutionary biology and genetics. At the moment, I am mainly working on questions relating to immunology - specifically inflammation, immune tolerance and auto-inflammatory diseases.
+I am a biologist turned bioinformatician turned data scientist from Münster in Germany. I've earned my PhD from the University of Münster, where I worked on the link between flowering time and immune defense in plants using quantitative genetics and RNA-sequencing. My overarching interest has been evolutionary biology and genetics. Following my PhD, I continued as a Postdoc for two years; during this time, I was working as a bioinformatician for Next-Generation-Sequencing analysis on questions relating to immunology - specifically inflammation, immune tolerance and auto-inflammatory diseases. Since July of 2017 I have switched to industry, where I work as a data scientist for codecentric AG.
 
 I'm a big fan of R and I write [a blog](www.shirin-glander.de) where I explore different data sets and techniques in R. I also teach ballroom and Latin dance courses.
 

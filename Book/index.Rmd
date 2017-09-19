@@ -28,15 +28,16 @@ lapply(c("bookdown", "qtl", "ggplot2"), function(pkg) {
 
 # Preface {-}
 
-Hi there, this is my great book.
+This book is supposed to give an introduction to different methods used in Statistical Genetics and how to run them in the R universe. Statistical Genetics benefits a lot from the increase in computing power and data storage possibilities, because it allows us to run more complex models and include vastly more information into our analyses.
 
 ## Why read this book {-}
 
-It is very important...
+This book will follow a hands-on approach, including code chunks and exercises for each chapter. This makes it useful for using as a compendium to Statistical Genetics courses for students and for everybody looking to get into Statistical Genetics analyses in R.
 
 ## Structure of the book {-}
 
-Chapters \@ref(introduction-to-statistical-genetics) introduces a new topic, and ...
+Chapter \@ref(introduction-to-statistical-genetics) introduces Statistical Genetics.
+
 
 
 ## Acknowledgments {-}

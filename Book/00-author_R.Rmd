@@ -7,12 +7,17 @@ I'm a big fan of R and I write [a blog](www.shirin-glander.de) where I explore d
 You can find me and my package for gene expression analysis (exprAnalysis) on [Github](https://github.com/ShirinG).
 
 
+# Why use R for Statistical Genetics?
+
+R[@R-core] provides a big collection of packages geared towards statistical analyses and genetics. It allows you to start with a dataset and answer multiple questions by combining different functions and analyses specific to your area of interest. Moreover, R makes it easy to clean and preprocess data. R is open-source and can be used across platforms, like Windows, Mac OS and Linux. Its powerful visualization tools make it also very convenient for producing publication-ready graphics along with your analyses. The community around R is very active and you can find answers and support on many levels, like [the R help from CRAN](https://www.r-project.org/help.html), on StackOverflow(https://stackoverflow.com/), on [Google Groups](https://groups.google.com/forum/#!forum/r-help-archive) or on [Bioconductor](https://www.bioconductor.org/help/).
+
+
 # The Basics of R {-}
 
 > "R is an integrated suite of software facilities for data manipulation, calculation and graphical
 display." [An Introduction to R - Notes on R: A Programming Environment for Data Analysis and Graphics version 3.4.0 (2017-04-21) by W. N. Venables, D. M. Smith and the R Core Team](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
 
-R has originally been developed for statistical analysis and is a powerful toolbox for a wide range of tasks pertaining to data handling, statistical modeling and visualisation. It consists of a core distribution that contains basic functions. You can use additional packages for specific analyses.
+R[@R-core] has originally been developed for statistical analysis and is a powerful toolbox for a wide range of tasks pertaining to data handling, statistical modeling and visualisation. It consists of a core distribution that contains basic functions. You can use additional packages for specific analyses.
 
 This books assumes a basic knowledge about getting data into R, installing and loading packages, calling functions, etc. It is beyond the scope of this book to provide an in depth introduction to R. Luckily, there are a large number of free online resources available, like
 

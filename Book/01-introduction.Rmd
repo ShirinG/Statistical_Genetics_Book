@@ -2,29 +2,35 @@
 
 # Introduction to Statistical Genetics
 
-Statistical genetics describes the scientific field that uses statistics to gain insight from genetic data. Genetic data can help understand the basis and regulation of traits and diseases in humans, animals, plants and simpler organisms.
+Statistical genetics is the scientific field that uses statistics to gain insight from genetic data. Genetic data can help understand the basis and regulation of traits and diseases in humans, animals, plants and simpler organisms. Statistical genetics makes use of large-scale datasets, e.g. from Genome-Wide Association Studies (GWAS), Population-wide studies, or from Next-Generation Sequencing (NGS)\index{ngs} approaches. With these techniques, we can generate data on hundreds of thousands of genetic markers, called Single Nucleotide Polymorphisms (SNPs)\index{snp}, we can sequence entire genomes, transcriptomes, identify epigenetic markers and much more.
 
-Statistical genetics makes use of large-scale datasets, e.g. from Genome-Wide Association Studies (GWAS) or from Next-Generation Sequencing approaches.
+With the vastly increasing computational possibilities over the last years - we now have the hardware to store and analyse large amounts of data - also changed the way we analyse genetic studies. In order to harness the information that lies in these big data sources, we need to apply the right statistics and analyses. Because these new types of analyses are often computationally expensive, statistical genetics requires a solid understanding in bioinformatics, mathematics, biology and epidemiology, along with genetics.
 
-- 3rd generation of genetic markers (SNPs)
 
-> DNA sequence of numerous organisms, gene-statement information (transcriptional profiling), and an increasing amount of knowledge about gene function. Statisticians play an important role in the analysis and the design of genetic studies.
-Statistical genetics overlaps with fields such as biomathematics, bioinformatics, biology, epidemiology, genetics, etc. People in the department have worked and are working on methods in linkage analysis, allelic association tests, gene statement array data analysis, sequence analysis, comparative genomics, phylogenetic tree reconstruction, etc.
-
-Statistical inference of genetic regulation needs sufficiently large study populations, especially if we analyse unrelated individuals. Family cohort analyses can be done on much smaller sample sizes, because we can largely assume Mendelian inheritance.
+## Evolutionary and Population Genetics
 
 A solid understanding of inheritance mechanisms in populations is paramount to understanding statistical genetics.
 Therefore, this book will start with evolutionary and population genetics, the subfield that studies evolutionary processes like speciation and adaptation or population-level phenomena like migration, drift, etc.
 
+
+## Quantitative Genetics
+
 Closely related to population genetics is quantitative genetics. Here, the focus lies on analysing quantitative traits and their underlying genetic regulation.
 
 
+## GWAS
+
+Statistical inference of genetic regulation needs sufficiently large study populations, especially if we analyse unrelated individuals. Family cohort analyses can be done on much smaller sample sizes, because we can largely assume Mendelian inheritance.
+
+---
+
+
+> DNA sequence of numerous organisms, gene-statement information (transcriptional profiling), and an increasing amount of knowledge about gene function. Statisticians play an important role in the analysis and the design of genetic studies.
+Statistical genetics overlaps with fields such as biomathematics, bioinformatics, biology, epidemiology, genetics, etc. People in the department have worked and are working on methods in linkage analysis, allelic association tests, gene statement array data analysis, sequence analysis, comparative genomics, phylogenetic tree reconstruction, etc.
 
 
 > Genetic epidemiology is the study of the role of genetic factors in determining health and disease in families and in populations, and the interplay of such genetic factors with environmental factors. Genetic epidemiology seeks to derive a statistical and quantitative analysis of how genetics work in large groups.[1]
 
-> Statistical genetics is concerned with the analysis of genetic data. Due to rapid progress in laboratory techniques, there is an ever-increasing slew of new data: the 3rd generation of genetic markers (SNPs), the DNA sequence of numerous organisms, gene-statement information (transcriptional profiling), and an increasing amount of knowledge about gene function. Statisticians play an important role in the analysis and the design of genetic studies.
-Statistical genetics overlaps with fields such as biomathematics, bioinformatics, biology, epidemiology, genetics, etc. People in the department have worked and are working on methods in linkage analysis, allelic association tests, gene statement array data analysis, sequence analysis, comparative genomics, phylogenetic tree reconstruction, etc.
 
 > Statistical geneticists at HSPH develop statistical methods for understanding the genetic basis of human diseases and traits.  These methods involve large-scale data sets from candidate-gene, genome-wide and resequencing studies, using both unrelated and related individuals.  HSPH statistical geneticists collaborate with other investigators at HSPH and around the world on studies of cancer, heart disease, diabetes, respiratory disease, psychiatric disease, and health-related behaviors (e.g. smoking, diet).  They have close ties to the Program in Quantitative Genomics and Computational Biology and Bioinformatics group at HSPH.  Training encompasses basic statistics; Mendelian and population genetics; design and analysis of genetic association studies; gene expression and epigenetic markers; and gene-environment interaction.
 

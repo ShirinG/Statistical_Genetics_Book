@@ -1,26 +1,22 @@
-
 # Evolutionary and Population Genetics
 
-Evolutionary and population genetics study processes like adapation and speciation events from a genetic perspective. This means that they are interested in how genes and alleles are transmitted between parents and offspring (or in some cases even horizontally), how they change and adapt over time , how dominance, epistasis and epigenetics influence phenotypes and how this relate to population structure. 
+Evolutionary and population genetics are interested in the genetics of population-scale processes, like speciation and adaptation. The basis for population-level genetics are genes and alleles, which are passed on from generation to generation (and in some cases horizontally within generations). Alleles change in frequency over time and with different environments and thus directly contribute to adaptation. In sum, population structure is influenced by the combined effects of all alleles in a population and their dominance effects, epistasis and epigenetic regulations.
 
-The basic concept of evolutionary biology is that in order for selection to lead to change in populations, there needs to be sufficient genetic and phenotypic variation in that population to select from. From a genetics perspective, this means that selection will favor certain alleles among the pool of genes in the population. Favorable alleles will therefore increase in frequency within the population over time, while disadvantageous alleles will eventually disappear. Depending on how stable the environment is, this change in allele frequencies can be subject to severe fluctuation.
+In order for adaption to occur, the fittest alleles in a population will be selected from the gene pool. Sufficient genetic and phenotypic variation in a population is paramount for this. Over time, "survival of the fittest" alleles leads to changes in the composition of the gene pool in a population and favorable alleles will go to fixation, while disadvantegous alleles will disappear.
+
+## Mendelian inheritance
+
+
+
+---
 
 Additional aspects like migration, mutation, recombination, inbreeding, drift, etc. make modeling of evolutionary and population genetic processes non-trivial.
 
-https://en.wikipedia.org/wiki/Population_genetics
+- textbooks on population genetics (Templeton, 2006; Hartl & Clark, 2007; Nielsen & Slatkin, 2013).
+- books on theory and statistics of population genetics (Weir, 1996). 
+(Hein, Schierup & Wiuf, 2004; Wakeley, 2009; Nielsen & Slatkin, 2013)
 
-- Mendelian and population genetics;
 
-This primer provides a concise introduction to conducting applied analyses of population genetic data in R, with a special emphasis on non-model populations including clonal or partially clonal organisms. It is not meant to be a textbook on population genetics. Quite to the contrary, we refer the reader to several textbooks on population genetics (Templeton, 2006; Hartl & Clark, 2007; Nielsen & Slatkin, 2013). Likewise, this book will not replace books on theory and statistics of population genetics (Weir, 1996). The reader is thus expected to have a basic understanding of population genetic theory and applications. Finally, this primer is focused on traditional population genetics based on allele frequencies, rather than more sophisticated coalescent approaches (Hein, Schierup & Wiuf, 2004; Wakeley, 2009; Nielsen & Slatkin, 2013), although some of the material covered here will apply. In a nutshell, this primer provides a valuable resource for tackling the nitty-gritty analysis of populations that do not necessarily conform to textbook genetics and might or might not be in Hardy-Weinberg equilibrium and panmixia.
-
-This primer is geared towards biologists interested in analyzing their populations. This primer does not require extensive knowledge of programming in R, but the user is expected to install R and all packages required for this primer.
-
-Why use R?
-Until recently, one of the more tedious aspects of conducting a population genetic analysis was the need for repeated reformatting data to conduct different, complimentary analyses in different programs. Often, these programs only ran on one platform. Now, R provides a toolbox with its packages that allows analysis of most data conveniently without tedious reformatting on all major computing platforms including Microsoft Windows, Linux, and Apple’s OS X. R is an open source statistical programming and graphing language that includes tools for statistical, population genetic, genomic, phylogenetic, and comparative genomic analyses. This primer is for those of us that want to conduct applied analyses of populations and make full use of the palette of tools available in R including for example the R markdown code for this primer.
-
-Note that the R user community is very active and that both R and its packages are regularly updated, critically modified, and noted as deprecated (no longer updated) as appropriate.
-
-Any R user needs to make sure all components are up-to-date and that versions are compatible.
 Population genetics
 Traditional population genetics is based on analysis of observed allele frequencies compared to frequencies expected, assuming a population genetic model. For example, under a Wright-Fisher model you might expect to see populations of diploid individuals that reproduce sexually, with non-overlapping generations. This model ignores effects such as mutation, recombination, selection or changes in population size or structure. More complex models can incorporate different aspects of effects observed in real populations. However, most of these models assume that populations reproduce sexually.
 
